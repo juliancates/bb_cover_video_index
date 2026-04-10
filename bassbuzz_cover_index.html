@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BassBuzz Cover Index 2026</title>
+<style>:root{--bg:#f5f4f0;--surface:#fff;--border:#e2e0d8;--text:#1a1917;--muted:#6b6963;
+  --accent:#e8572a;--accent-bg:#fef2ee;--tag:#eae8e2;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--bg);color:var(--text);font-size:14px;line-height:1.5}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+header{background:var(--surface);border-bottom:1px solid var(--border);
+  padding:12px 22px;position:sticky;top:0;z-index:20;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+header h1{font-size:16px;font-weight:600}
+header p{font-size:12px;color:var(--muted)}
+
+.layout{display:flex;max-width:1240px;margin:0 auto}
+
+/* sidebar */
+.sidebar{width:206px;flex-shrink:0;padding:12px 8px;
+  border-right:1px solid var(--border);
+  position:sticky;top:45px;height:calc(100vh - 45px);overflow-y:auto}
+.sidebar-label{font-size:10px;text-transform:uppercase;letter-spacing:.07em;
+  color:var(--muted);padding:0 8px;margin:10px 0 4px}
+.sitem{display:flex;align-items:center;gap:7px;padding:5px 8px;
+  border-radius:7px;cursor:pointer;font-size:13px;color:var(--text);user-select:none}
+.sitem:hover,.sitem.active{background:var(--accent-bg);color:var(--accent)}
+.av,.av-init{width:22px;height:22px;border-radius:50%;flex-shrink:0}
+.av{object-fit:cover;background:var(--tag)}
+.av-init{background:var(--tag);color:var(--muted);font-size:9px;font-weight:700;
+  display:flex;align-items:center;justify-content:center}
+.uname{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cnt{font-size:11px;color:var(--muted);background:var(--tag);
+  padding:1px 6px;border-radius:99px;flex-shrink:0}
+.sitem.active .cnt{background:var(--accent-bg);color:var(--accent)}
+
+/* main */
+.main{flex:1;padding:16px 18px;min-width:0}
+.stats{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.stat{background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:10px 16px;flex:1;min-width:80px}
+.stat .n{font-size:22px;font-weight:600}
+.stat .lbl{font-size:11px;color:var(--muted)}
+
+.toolbar{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;align-items:center}
+.toolbar input,.toolbar select{font-size:13px;padding:6px 10px;
+  border:1px solid var(--border);border-radius:7px;
+  background:var(--surface);color:var(--text)}
+.toolbar input{flex:1;min-width:160px}
+.count-label{font-size:12px;color:var(--muted);margin-left:auto;white-space:nowrap}
+
+/* card grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;overflow:hidden;display:flex;flex-direction:column;
+  transition:box-shadow .15s, transform .15s}
+.card:hover{box-shadow:0 6px 20px rgba(0,0,0,.09);transform:translateY(-1px)}
+
+.thumb-link{display:block;text-decoration:none}
+.thumb-wrap{position:relative;width:100%;padding-top:56.25%;
+  background:var(--tag);overflow:hidden;flex-shrink:0}
+.thumb-wrap img{position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;display:block}
+.no-thumb{position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:8px;
+  background:linear-gradient(135deg,#2a2a2a 0%,#1a1a1a 100%)}
+.no-thumb-icon{font-size:28px;color:#555;line-height:1}
+.no-thumb-text{font-size:11px;font-weight:500;color:#666;
+  text-align:center;letter-spacing:.03em;padding:0 12px;line-height:1.3}
+.play-overlay{position:absolute;inset:0;display:flex;align-items:center;
+  justify-content:center;background:rgba(0,0,0,.2);
+  opacity:0;transition:opacity .15s}
+.card:hover .play-overlay{opacity:1}
+.play-btn{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.92);
+  display:flex;align-items:center;justify-content:center;font-size:18px;padding-left:3px}
+.pbadge{position:absolute;top:8px;right:8px;font-size:10px;font-weight:700;
+  padding:2px 7px;border-radius:99px}
+
+.card-body{padding:11px 13px;flex:1;display:flex;flex-direction:column;gap:5px}
+.card-title{font-size:13px;font-weight:600;line-height:1.35;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-hint{font-size:12px;color:var(--muted);
+  display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.card-footer{display:flex;align-items:center;gap:8px;margin-top:auto;
+  padding-top:8px;border-top:1px solid var(--border)}
+.card-av,.card-av-init{width:26px;height:26px;border-radius:50%;flex-shrink:0}
+.card-av{object-fit:cover;background:var(--tag)}
+.card-av-init{background:var(--tag);color:var(--muted);font-size:10px;font-weight:700;
+  display:flex;align-items:center;justify-content:center}
+.card-meta{flex:1;min-width:0}
+.user-link{font-size:12px;font-weight:600;color:var(--text);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.user-link:hover{color:var(--accent);text-decoration:none}
+.card-date{font-size:11px;color:var(--muted)}
+.post-link{color:var(--muted)}
+.post-link:hover{color:var(--accent)}
+.watch-btn{font-size:12px;padding:4px 10px;border-radius:6px;
+  background:var(--accent-bg);color:var(--accent);
+  border:1px solid #f5c4b3;white-space:nowrap;flex-shrink:0}
+.watch-btn:hover{background:var(--accent);color:#fff;text-decoration:none}
+
+.hidden{display:none!important}
+@media(max-width:680px){.sidebar{display:none}.layout{flex-direction:column}.main{padding:10px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>BassBuzz Cover Index &mdash; 2026</h1>
+  <p>From <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851" target="_blank">Post Your Covers! (2026)</a>
+     &nbsp;&middot;&nbsp; Updated: April 10, 2026 at 11:58 AM</p>
+</header>
+<div class="layout">
+  <nav class="sidebar">
+    <div class="sidebar-label">Contributor</div>
+    <div class="sitem active" data-user="all" onclick="filterUser('all')">
+      <div class="av-init" style="font-size:13px">&#9733;</div>
+      <span class="uname">All contributors</span>
+      <span class="cnt" id="cnt-all">78</span>
+    </div>
+    <div style="margin-top:4px"></div>
+    <div class="sitem" data-user="TheMadBassist" onclick="filterUser('TheMadBassist')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/themadbassist/72/82589_2.png" alt="TheMadBassist" onerror="this.outerHTML='<div class=&quot;av-init&quot;>TH</div>'"><span class="uname">TheMadBassist</span><span class="cnt">12</span></div>
+<div class="sitem" data-user="sunDOG" onclick="filterUser('sunDOG')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/sundog/72/59900_2.png" alt="sunDOG" onerror="this.outerHTML='<div class=&quot;av-init&quot;>SU</div>'"><span class="uname">sunDOG</span><span class="cnt">9</span></div>
+<div class="sitem" data-user="JustinAndSheba" onclick="filterUser('JustinAndSheba')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/justinandsheba/72/68579_2.png" alt="JustinAndSheba" onerror="this.outerHTML='<div class=&quot;av-init&quot;>JU</div>'"><span class="uname">JustinAndSheba</span><span class="cnt">7</span></div>
+<div class="sitem" data-user="Professor" onclick="filterUser('Professor')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/professor/72/83710_2.png" alt="Professor" onerror="this.outerHTML='<div class=&quot;av-init&quot;>PR</div>'"><span class="uname">Professor</span><span class="cnt">7</span></div>
+<div class="sitem" data-user="justarookie" onclick="filterUser('justarookie')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/justarookie/72/74251_2.png" alt="justarookie" onerror="this.outerHTML='<div class=&quot;av-init&quot;>JU</div>'"><span class="uname">justarookie</span><span class="cnt">5</span></div>
+<div class="sitem" data-user="EverC" onclick="filterUser('EverC')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/everc/72/71756_2.png" alt="EverC" onerror="this.outerHTML='<div class=&quot;av-init&quot;>EV</div>'"><span class="uname">EverC</span><span class="cnt">3</span></div>
+<div class="sitem" data-user="katieann1988" onclick="filterUser('katieann1988')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/katieann1988/72/84861_2.png" alt="katieann1988" onerror="this.outerHTML='<div class=&quot;av-init&quot;>KA</div>'"><span class="uname">katieann1988</span><span class="cnt">3</span></div>
+<div class="sitem" data-user="faydout" onclick="filterUser('faydout')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/faydout/72/57513_2.png" alt="faydout" onerror="this.outerHTML='<div class=&quot;av-init&quot;>FA</div>'"><span class="uname">faydout</span><span class="cnt">3</span></div>
+<div class="sitem" data-user="JohnF" onclick="filterUser('JohnF')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/johnf/72/62910_2.png" alt="JohnF" onerror="this.outerHTML='<div class=&quot;av-init&quot;>JO</div>'"><span class="uname">JohnF</span><span class="cnt">2</span></div>
+<div class="sitem" data-user="BassyBunch" onclick="filterUser('BassyBunch')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/bassybunch/72/73616_2.png" alt="BassyBunch" onerror="this.outerHTML='<div class=&quot;av-init&quot;>BA</div>'"><span class="uname">BassyBunch</span><span class="cnt">2</span></div>
+<div class="sitem" data-user="BumbleJazz" onclick="filterUser('BumbleJazz')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/bumblejazz/72/64185_2.png" alt="BumbleJazz" onerror="this.outerHTML='<div class=&quot;av-init&quot;>BU</div>'"><span class="uname">BumbleJazz</span><span class="cnt">2</span></div>
+<div class="sitem" data-user="uttaraag" onclick="filterUser('uttaraag')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/uttaraag/72/79668_2.png" alt="uttaraag" onerror="this.outerHTML='<div class=&quot;av-init&quot;>UT</div>'"><span class="uname">uttaraag</span><span class="cnt">2</span></div>
+<div class="sitem" data-user="Airwwwave" onclick="filterUser('Airwwwave')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/airwwwave/72/81953_2.png" alt="Airwwwave" onerror="this.outerHTML='<div class=&quot;av-init&quot;>AI</div>'"><span class="uname">Airwwwave</span><span class="cnt">1</span></div>
+<div class="sitem" data-user="ourwildplaces" onclick="filterUser('ourwildplaces')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/ourwildplaces/72/79386_2.png" alt="ourwildplaces" onerror="this.outerHTML='<div class=&quot;av-init&quot;>OU</div>'"><span class="uname">ourwildplaces</span><span class="cnt">1</span></div>
+<div class="sitem" data-user="thinktriplets" onclick="filterUser('thinktriplets')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/thinktriplets/72/82038_2.png" alt="thinktriplets" onerror="this.outerHTML='<div class=&quot;av-init&quot;>TH</div>'"><span class="uname">thinktriplets</span><span class="cnt">1</span></div>
+<div class="sitem" data-user="carcinogenedwards" onclick="filterUser('carcinogenedwards')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/carcinogenedwards/72/81192_2.png" alt="carcinogenedwards" onerror="this.outerHTML='<div class=&quot;av-init&quot;>CA</div>'"><span class="uname">carcinogenedwards</span><span class="cnt">1</span></div>
+<div class="sitem" data-user="John_E" onclick="filterUser('John_E')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/john_e/72/14092_2.png" alt="John_E" onerror="this.outerHTML='<div class=&quot;av-init&quot;>JO</div>'"><span class="uname">John_E</span><span class="cnt">1</span></div>
+<div class="sitem" data-user="CrayWolf" onclick="filterUser('CrayWolf')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/craywolf/72/70468_2.png" alt="CrayWolf" onerror="this.outerHTML='<div class=&quot;av-init&quot;>CR</div>'"><span class="uname">CrayWolf</span><span class="cnt">1</span></div>
+<div class="sitem" data-user="flappdabass" onclick="filterUser('flappdabass')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/flappdabass/72/84214_2.png" alt="flappdabass" onerror="this.outerHTML='<div class=&quot;av-init&quot;>FL</div>'"><span class="uname">flappdabass</span><span class="cnt">1</span></div>
+<div class="sitem" data-user="THRILLHO" onclick="filterUser('THRILLHO')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/thrillho/72/79634_2.png" alt="THRILLHO" onerror="this.outerHTML='<div class=&quot;av-init&quot;>TH</div>'"><span class="uname">THRILLHO</span><span class="cnt">1</span></div>
+<div class="sitem" data-user="KaiserSoze" onclick="filterUser('KaiserSoze')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/kaisersoze/72/84702_2.png" alt="KaiserSoze" onerror="this.outerHTML='<div class=&quot;av-init&quot;>KA</div>'"><span class="uname">KaiserSoze</span><span class="cnt">1</span></div>
+<div class="sitem" data-user="Mktony32" onclick="filterUser('Mktony32')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/mktony32/72/83017_2.png" alt="Mktony32" onerror="this.outerHTML='<div class=&quot;av-init&quot;>MK</div>'"><span class="uname">Mktony32</span><span class="cnt">1</span></div>
+<div class="sitem" data-user="Ed" onclick="filterUser('Ed')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/ed/72/76644_2.png" alt="Ed" onerror="this.outerHTML='<div class=&quot;av-init&quot;>ED</div>'"><span class="uname">Ed</span><span class="cnt">1</span></div>
+<div class="sitem" data-user="MrFrench" onclick="filterUser('MrFrench')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/mrfrench/72/84775_2.png" alt="MrFrench" onerror="this.outerHTML='<div class=&quot;av-init&quot;>MR</div>'"><span class="uname">MrFrench</span><span class="cnt">1</span></div>
+<div class="sitem" data-user="Vader" onclick="filterUser('Vader')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/vader/72/64413_2.png" alt="Vader" onerror="this.outerHTML='<div class=&quot;av-init&quot;>VA</div>'"><span class="uname">Vader</span><span class="cnt">1</span></div>
+<div class="sitem" data-user="andrea-slnd" onclick="filterUser('andrea-slnd')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/andrea-slnd/72/70651_2.png" alt="andrea-slnd" onerror="this.outerHTML='<div class=&quot;av-init&quot;>AN</div>'"><span class="uname">andrea-slnd</span><span class="cnt">1</span></div>
+<div class="sitem" data-user="fennario" onclick="filterUser('fennario')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/fennario/72/85272_2.png" alt="fennario" onerror="this.outerHTML='<div class=&quot;av-init&quot;>FE</div>'"><span class="uname">fennario</span><span class="cnt">1</span></div>
+<div class="sitem" data-user="DirkTungsten" onclick="filterUser('DirkTungsten')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/dirktungsten/72/77331_2.png" alt="DirkTungsten" onerror="this.outerHTML='<div class=&quot;av-init&quot;>DI</div>'"><span class="uname">DirkTungsten</span><span class="cnt">1</span></div>
+<div class="sitem" data-user="groaner" onclick="filterUser('groaner')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/groaner/72/65104_2.png" alt="groaner" onerror="this.outerHTML='<div class=&quot;av-init&quot;>GR</div>'"><span class="uname">groaner</span><span class="cnt">1</span></div>
+<div class="sitem" data-user="Al1885" onclick="filterUser('Al1885')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/al1885/72/16361_2.png" alt="Al1885" onerror="this.outerHTML='<div class=&quot;av-init&quot;>AL</div>'"><span class="uname">Al1885</span><span class="cnt">1</span></div>
+<div class="sitem" data-user="joergkutter" onclick="filterUser('joergkutter')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/joergkutter/72/659_2.png" alt="joergkutter" onerror="this.outerHTML='<div class=&quot;av-init&quot;>JO</div>'"><span class="uname">joergkutter</span><span class="cnt">1</span></div>
+<div class="sitem" data-user="JerryP" onclick="filterUser('JerryP')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/jerryp/72/70450_2.png" alt="JerryP" onerror="this.outerHTML='<div class=&quot;av-init&quot;>JE</div>'"><span class="uname">JerryP</span><span class="cnt">1</span></div>
+<div class="sitem" data-user="TheMaartian" onclick="filterUser('TheMaartian')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/themaartian/72/65931_2.png" alt="TheMaartian" onerror="this.outerHTML='<div class=&quot;av-init&quot;>TH</div>'"><span class="uname">TheMaartian</span><span class="cnt">1</span></div>
+  </nav>
+  <main class="main">
+    <div class="stats">
+      <div class="stat"><div class="n" id="sv">78</div><div class="lbl">Videos</div></div>
+      <div class="stat"><div class="n" id="su">33</div><div class="lbl">Contributors</div></div>
+      <div class="stat"><div class="n">25</div><div class="lbl">Pages scanned</div></div>
+      <div class="stat"><div class="n">491</div><div class="lbl">Thread posts</div></div>
+    </div>
+    <div class="toolbar">
+      <input type="search" id="q" placeholder="Search title, song, artist, username&hellip;" oninput="applyFilters()">
+      <select id="pf" onchange="applyFilters()">
+        <option value="all">All platforms</option>
+        <option value="Instagram">Instagram</option>
+<option value="Vimeo">Vimeo</option>
+<option value="YouTube">YouTube</option>
+      </select>
+      <select id="srt" onchange="applyFilters()">
+        <option value="newest">Newest first</option>
+        <option value="oldest">Oldest first</option>
+        <option value="user">By contributor</option>
+      </select>
+      <span class="count-label" id="cl">78 videos</span>
+    </div>
+    <div class="grid" id="grid">
+<div class="card" data-user="TheMadBassist" data-platform="YouTube" data-postnum="32" data-search="air supply (all out of love) bass cover #airsupply #alloutoflove   themadbassist">
+  <a href="https://youtu.be/-EvpkzyXN_4?si=RxQFKWRSb4nch0Og" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/-EvpkzyXN_4/hqdefault.jpg" alt="Air Supply (All Out of Love) Bass Cover #airsupply #alloutoflove " loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Air Supply (All Out of Love) Bass Cover #airsupply #alloutoflove ">Air Supply (All Out of Love) Bass Cover #airsupply #alloutoflove </div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/themadbassist/72/82589_2.png" alt="TheMadBassist" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>TH</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/TheMadBassist" target="_blank" rel="noopener" class="user-link">TheMadBassist</a>
+        <span class="card-date">Jan 3 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/32" target="_blank" rel="noopener" class="post-link">post #32</a></span>
+      </div>
+      <a href="https://youtu.be/-EvpkzyXN_4?si=RxQFKWRSb4nch0Og" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="TheMadBassist" data-platform="YouTube" data-postnum="32" data-search="trans-siberian orchestra (christmas canon rock) bass cover #transsiberianorchestra #christmasmusic   themadbassist">
+  <a href="https://youtu.be/vW2cbgmlZPM?si=iamnbpTQ__tIHlyf" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/vW2cbgmlZPM/hqdefault.jpg" alt="Trans-Siberian Orchestra (Christmas Canon Rock) Bass Cover #transsiberianorchestra #christmasmusic " loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Trans-Siberian Orchestra (Christmas Canon Rock) Bass Cover #transsiberianorchestra #christmasmusic ">Trans-Siberian Orchestra (Christmas Canon Rock) Bass Cover #transsiberianorchestra #christmasmusic </div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/themadbassist/72/82589_2.png" alt="TheMadBassist" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>TH</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/TheMadBassist" target="_blank" rel="noopener" class="user-link">TheMadBassist</a>
+        <span class="card-date">Jan 3 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/32" target="_blank" rel="noopener" class="post-link">post #32</a></span>
+      </div>
+      <a href="https://youtu.be/vW2cbgmlZPM?si=iamnbpTQ__tIHlyf" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="Airwwwave" data-platform="Instagram" data-postnum="37" data-search="https://www.instagram.com/reel/dtgviitj5mn/?utm_source=ig_web_copy_link&amp;amp;igsh=mzrlodbinwflza==  airwwwave">
+  <a href="https://www.instagram.com/reel/DTGvIItj5mn/?utm_source=ig_web_copy_link&amp;amp;igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><div class="no-thumb"><div class="no-thumb-icon">&#9654;</div><div class="no-thumb-text">Video Thumbnail Unavailable</div></div>
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fdf0ff;color:#7b2d8b">IG</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="https://www.instagram.com/reel/DTGvIItj5mn/?utm_source=ig_web_copy_link&amp;amp;igsh=MzRlODBiNWFlZA==">https://www.instagram.com/reel/DTGvIItj5mn/?utm_source=ig_web_copy_link&amp;amp;igsh=MzRlODBiNWFlZA==</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/airwwwave/72/81953_2.png" alt="Airwwwave" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>AI</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/Airwwwave" target="_blank" rel="noopener" class="user-link">Airwwwave</a>
+        <span class="card-date">Jan 4 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/37" target="_blank" rel="noopener" class="post-link">post #37</a></span>
+      </div>
+      <a href="https://www.instagram.com/reel/DTGvIItj5mn/?utm_source=ig_web_copy_link&amp;amp;igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="JustinAndSheba" data-platform="YouTube" data-postnum="53" data-search="loverboy - turn me loose (1980) bass cover/playthrough  justinandsheba">
+  <a href="https://www.youtube.com/watch?v=bnugtC48lLg" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/bnugtC48lLg/hqdefault.jpg" alt="Loverboy - Turn Me Loose (1980) bass cover/playthrough" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Loverboy - Turn Me Loose (1980) bass cover/playthrough">Loverboy - Turn Me Loose (1980) bass cover/playthrough</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/justinandsheba/72/68579_2.png" alt="JustinAndSheba" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>JU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/JustinAndSheba" target="_blank" rel="noopener" class="user-link">JustinAndSheba</a>
+        <span class="card-date">Jan 6 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/53" target="_blank" rel="noopener" class="post-link">post #53</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=bnugtC48lLg" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="TheMadBassist" data-platform="YouTube" data-postnum="65" data-search="gorillaz (clint eastwood) bass cover #gorillaz #clinteastwood #bass   themadbassist">
+  <a href="https://youtu.be/c9nxfkzYqV4?si=XrHyj-6k7yCGv2f0" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/c9nxfkzYqV4/hqdefault.jpg" alt="Gorillaz (Clint Eastwood) Bass Cover #gorillaz #clinteastwood #bass " loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Gorillaz (Clint Eastwood) Bass Cover #gorillaz #clinteastwood #bass ">Gorillaz (Clint Eastwood) Bass Cover #gorillaz #clinteastwood #bass </div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/themadbassist/72/82589_2.png" alt="TheMadBassist" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>TH</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/TheMadBassist" target="_blank" rel="noopener" class="user-link">TheMadBassist</a>
+        <span class="card-date">Jan 9 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/65" target="_blank" rel="noopener" class="post-link">post #65</a></span>
+      </div>
+      <a href="https://youtu.be/c9nxfkzYqV4?si=XrHyj-6k7yCGv2f0" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="ourwildplaces" data-platform="YouTube" data-postnum="102" data-search="top 20 metal bass intros of all time | with tabs  ourwildplaces">
+  <a href="https://www.youtube.com/watch?v=jCVam5qxy9E" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/jCVam5qxy9E/hqdefault.jpg" alt="Top 20 METAL BASS INTROS Of All Time | With Tabs" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Top 20 METAL BASS INTROS Of All Time | With Tabs">Top 20 METAL BASS INTROS Of All Time | With Tabs</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/ourwildplaces/72/79386_2.png" alt="ourwildplaces" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>OU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/ourwildplaces" target="_blank" rel="noopener" class="user-link">ourwildplaces</a>
+        <span class="card-date">Jan 13 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/102" target="_blank" rel="noopener" class="post-link">post #102</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=jCVam5qxy9E" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="thinktriplets" data-platform="YouTube" data-postnum="111" data-search="kings of leon - stormy weather bass cover  thinktriplets">
+  <a href="https://youtu.be/Bo-9QFgdAZo" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/Bo-9QFgdAZo/hqdefault.jpg" alt="Kings Of Leon - Stormy Weather bass cover" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Kings Of Leon - Stormy Weather bass cover">Kings Of Leon - Stormy Weather bass cover</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/thinktriplets/72/82038_2.png" alt="thinktriplets" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>TH</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/thinktriplets" target="_blank" rel="noopener" class="user-link">thinktriplets</a>
+        <span class="card-date">Jan 16 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/111" target="_blank" rel="noopener" class="post-link">post #111</a></span>
+      </div>
+      <a href="https://youtu.be/Bo-9QFgdAZo" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="TheMadBassist" data-platform="YouTube" data-postnum="135" data-search="danzig (twist of cain) bass cover #danzig #basscover  #metal   themadbassist">
+  <a href="https://youtu.be/zckxKUfBdc8?si=_-E0MKx8U7d-Q0If" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/zckxKUfBdc8/hqdefault.jpg" alt="Danzig (Twist of Cain) Bass Cover #danzig #basscover  #metal " loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Danzig (Twist of Cain) Bass Cover #danzig #basscover  #metal ">Danzig (Twist of Cain) Bass Cover #danzig #basscover  #metal </div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/themadbassist/72/82589_2.png" alt="TheMadBassist" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>TH</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/TheMadBassist" target="_blank" rel="noopener" class="user-link">TheMadBassist</a>
+        <span class="card-date">Jan 19 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/135" target="_blank" rel="noopener" class="post-link">post #135</a></span>
+      </div>
+      <a href="https://youtu.be/zckxKUfBdc8?si=_-E0MKx8U7d-Q0If" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="TheMadBassist" data-platform="YouTube" data-postnum="136" data-search="buckcherry (lit up) bass cover #buckcherry #litup   themadbassist">
+  <a href="https://youtu.be/XIpx9hO4ffQ?si=i76LByMRpCkNRlxh" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/XIpx9hO4ffQ/hqdefault.jpg" alt="Buckcherry (Lit Up) Bass Cover #buckcherry #litup " loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Buckcherry (Lit Up) Bass Cover #buckcherry #litup ">Buckcherry (Lit Up) Bass Cover #buckcherry #litup </div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/themadbassist/72/82589_2.png" alt="TheMadBassist" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>TH</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/TheMadBassist" target="_blank" rel="noopener" class="user-link">TheMadBassist</a>
+        <span class="card-date">Jan 19 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/136" target="_blank" rel="noopener" class="post-link">post #136</a></span>
+      </div>
+      <a href="https://youtu.be/XIpx9hO4ffQ?si=i76LByMRpCkNRlxh" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="TheMadBassist" data-platform="YouTube" data-postnum="137" data-search="falling in reverse (just like you) bass cover #fallinginreverse #justlikeyou   themadbassist">
+  <a href="https://youtu.be/vqjvBXNbFD4?si=Rtdb9dHZWKWN022X" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/vqjvBXNbFD4/hqdefault.jpg" alt="Falling In Reverse (Just Like You) Bass Cover #fallinginreverse #justlikeyou " loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Falling In Reverse (Just Like You) Bass Cover #fallinginreverse #justlikeyou ">Falling In Reverse (Just Like You) Bass Cover #fallinginreverse #justlikeyou </div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/themadbassist/72/82589_2.png" alt="TheMadBassist" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>TH</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/TheMadBassist" target="_blank" rel="noopener" class="user-link">TheMadBassist</a>
+        <span class="card-date">Jan 19 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/137" target="_blank" rel="noopener" class="post-link">post #137</a></span>
+      </div>
+      <a href="https://youtu.be/vqjvBXNbFD4?si=Rtdb9dHZWKWN022X" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="carcinogenedwards" data-platform="YouTube" data-postnum="160" data-search="the cure - sinking - bass cover with tabs  4k  carcinogenedwards">
+  <a href="https://www.youtube.com/watch?v=9JEL0O6ATSk" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/9JEL0O6ATSk/hqdefault.jpg" alt="The Cure - Sinking - Bass cover with tabs  4K" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="The Cure - Sinking - Bass cover with tabs  4K">The Cure - Sinking - Bass cover with tabs  4K</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/carcinogenedwards/72/81192_2.png" alt="carcinogenedwards" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>CA</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/carcinogenedwards" target="_blank" rel="noopener" class="user-link">carcinogenedwards</a>
+        <span class="card-date">Jan 21 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/160" target="_blank" rel="noopener" class="post-link">post #160</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=9JEL0O6ATSk" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="JustinAndSheba" data-platform="YouTube" data-postnum="166" data-search="dio - the last in line (1984) bass cover/playthrough  justinandsheba">
+  <a href="https://www.youtube.com/watch?v=LE4pokltl60" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/LE4pokltl60/hqdefault.jpg" alt="Dio - The Last in Line (1984) Bass cover/playthrough" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Dio - The Last in Line (1984) Bass cover/playthrough">Dio - The Last in Line (1984) Bass cover/playthrough</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/justinandsheba/72/68579_2.png" alt="JustinAndSheba" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>JU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/JustinAndSheba" target="_blank" rel="noopener" class="user-link">JustinAndSheba</a>
+        <span class="card-date">Jan 22 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/166" target="_blank" rel="noopener" class="post-link">post #166</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=LE4pokltl60" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="TheMadBassist" data-platform="YouTube" data-postnum="177" data-search="the jeff healey band (on the road again) bass cover #jeffhealey #roadhouse #cannedheat   themadbassist">
+  <a href="https://youtu.be/K0jQrVgL1T8?si=8fgI-w0bDJFYvP64" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/K0jQrVgL1T8/hqdefault.jpg" alt="The Jeff Healey Band (On the Road Again) Bass Cover #jeffhealey #roadhouse #cannedheat " loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="The Jeff Healey Band (On the Road Again) Bass Cover #jeffhealey #roadhouse #cannedheat ">The Jeff Healey Band (On the Road Again) Bass Cover #jeffhealey #roadhouse #cannedheat </div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/themadbassist/72/82589_2.png" alt="TheMadBassist" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>TH</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/TheMadBassist" target="_blank" rel="noopener" class="user-link">TheMadBassist</a>
+        <span class="card-date">Jan 24 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/177" target="_blank" rel="noopener" class="post-link">post #177</a></span>
+      </div>
+      <a href="https://youtu.be/K0jQrVgL1T8?si=8fgI-w0bDJFYvP64" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="EverC" data-platform="YouTube" data-postnum="202" data-search="https://youtu.be/lwhszuq15l8  everc">
+  <a href="https://youtu.be/lwHsZUq15L8" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><div class="no-thumb"><div class="no-thumb-icon">&#9654;</div><div class="no-thumb-text">Video Thumbnail Unavailable</div></div>
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="https://youtu.be/lwHsZUq15L8">https://youtu.be/lwHsZUq15L8</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/everc/72/71756_2.png" alt="EverC" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>EV</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/EverC" target="_blank" rel="noopener" class="user-link">EverC</a>
+        <span class="card-date">Jan 27 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/202" target="_blank" rel="noopener" class="post-link">post #202</a></span>
+      </div>
+      <a href="https://youtu.be/lwHsZUq15L8" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="sunDOG" data-platform="YouTube" data-postnum="207" data-search="blur - song 2 bass cover  sundog">
+  <a href="https://www.youtube.com/watch?v=XUaLI6O8cyo" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/XUaLI6O8cyo/hqdefault.jpg" alt="Blur - Song 2 bass cover" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Blur - Song 2 bass cover">Blur - Song 2 bass cover</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/sundog/72/59900_2.png" alt="sunDOG" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>SU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/sunDOG" target="_blank" rel="noopener" class="user-link">sunDOG</a>
+        <span class="card-date">Jan 31 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/207" target="_blank" rel="noopener" class="post-link">post #207</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=XUaLI6O8cyo" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="justarookie" data-platform="YouTube" data-postnum="209" data-search="touché amoré - harbor bass cover  justarookie">
+  <a href="https://www.youtube.com/watch?v=WY2VJfjY3kk" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/WY2VJfjY3kk/hqdefault.jpg" alt="Touché Amoré - Harbor bass cover" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Touché Amoré - Harbor bass cover">Touché Amoré - Harbor bass cover</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/justarookie/72/74251_2.png" alt="justarookie" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>JU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/justarookie" target="_blank" rel="noopener" class="user-link">justarookie</a>
+        <span class="card-date">Jan 31 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/209" target="_blank" rel="noopener" class="post-link">post #209</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=WY2VJfjY3kk" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="TheMadBassist" data-platform="YouTube" data-postnum="216" data-search="the smashing pumpkins (1979) bass cover #thesmashingpumpkins #1979 #bass   themadbassist">
+  <a href="https://youtu.be/pwjPEKQ9pBQ?si=ALqg_3QhUXhBaKoZ" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/pwjPEKQ9pBQ/hqdefault.jpg" alt="The Smashing Pumpkins (1979) Bass Cover #thesmashingpumpkins #1979 #bass " loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="The Smashing Pumpkins (1979) Bass Cover #thesmashingpumpkins #1979 #bass ">The Smashing Pumpkins (1979) Bass Cover #thesmashingpumpkins #1979 #bass </div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/themadbassist/72/82589_2.png" alt="TheMadBassist" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>TH</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/TheMadBassist" target="_blank" rel="noopener" class="user-link">TheMadBassist</a>
+        <span class="card-date">Jan 31 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/216" target="_blank" rel="noopener" class="post-link">post #216</a></span>
+      </div>
+      <a href="https://youtu.be/pwjPEKQ9pBQ?si=ALqg_3QhUXhBaKoZ" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="TheMadBassist" data-platform="YouTube" data-postnum="219" data-search="kool &amp; the gang (celebration) bass cover #koolandthegang #celebration #bass   themadbassist">
+  <a href="https://youtu.be/M3K5ksapj7Y?si=LRbdM4rokYqbRvdv" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/M3K5ksapj7Y/hqdefault.jpg" alt="Kool &amp; The Gang (Celebration) Bass Cover #koolandthegang #celebration #bass " loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Kool &amp; The Gang (Celebration) Bass Cover #koolandthegang #celebration #bass ">Kool &amp; The Gang (Celebration) Bass Cover #koolandthegang #celebration #bass </div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/themadbassist/72/82589_2.png" alt="TheMadBassist" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>TH</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/TheMadBassist" target="_blank" rel="noopener" class="user-link">TheMadBassist</a>
+        <span class="card-date">Feb 2 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/219" target="_blank" rel="noopener" class="post-link">post #219</a></span>
+      </div>
+      <a href="https://youtu.be/M3K5ksapj7Y?si=LRbdM4rokYqbRvdv" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="John_E" data-platform="YouTube" data-postnum="222" data-search="pink floyd - hey you bass cover  john_e">
+  <a href="https://www.youtube.com/watch?v=Ci93urnfxos" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/Ci93urnfxos/hqdefault.jpg" alt="Pink Floyd - Hey You Bass Cover" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Pink Floyd - Hey You Bass Cover">Pink Floyd - Hey You Bass Cover</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/john_e/72/14092_2.png" alt="John_E" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>JO</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/John_E" target="_blank" rel="noopener" class="user-link">John_E</a>
+        <span class="card-date">Feb 2 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/222" target="_blank" rel="noopener" class="post-link">post #222</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=Ci93urnfxos" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="CrayWolf" data-platform="YouTube" data-postnum="227" data-search="prince - i wanna be your lover (bass cover)  craywolf">
+  <a href="https://www.youtube.com/watch?v=-rVicOzq2wc" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/-rVicOzq2wc/hqdefault.jpg" alt="Prince - I Wanna Be Your Lover (Bass Cover)" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Prince - I Wanna Be Your Lover (Bass Cover)">Prince - I Wanna Be Your Lover (Bass Cover)</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/craywolf/72/70468_2.png" alt="CrayWolf" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>CR</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/CrayWolf" target="_blank" rel="noopener" class="user-link">CrayWolf</a>
+        <span class="card-date">Feb 4 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/227" target="_blank" rel="noopener" class="post-link">post #227</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=-rVicOzq2wc" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="justarookie" data-platform="YouTube" data-postnum="246" data-search="the story so far - big blind bass cover  justarookie">
+  <a href="https://www.youtube.com/watch?v=5qJbZfs5SiQ" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/5qJbZfs5SiQ/hqdefault.jpg" alt="The Story So Far - Big Blind bass cover" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="The Story So Far - Big Blind bass cover">The Story So Far - Big Blind bass cover</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/justarookie/72/74251_2.png" alt="justarookie" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>JU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/justarookie" target="_blank" rel="noopener" class="user-link">justarookie</a>
+        <span class="card-date">Feb 7 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/246" target="_blank" rel="noopener" class="post-link">post #246</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=5qJbZfs5SiQ" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="sunDOG" data-platform="YouTube" data-postnum="247" data-search="nine inch nails - the hand that feeds bass cover  sundog">
+  <a href="https://www.youtube.com/watch?v=kEN13XVTkhI" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/kEN13XVTkhI/hqdefault.jpg" alt="Nine Inch Nails - The Hand That Feeds bass cover" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Nine Inch Nails - The Hand That Feeds bass cover">Nine Inch Nails - The Hand That Feeds bass cover</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/sundog/72/59900_2.png" alt="sunDOG" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>SU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/sunDOG" target="_blank" rel="noopener" class="user-link">sunDOG</a>
+        <span class="card-date">Feb 7 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/247" target="_blank" rel="noopener" class="post-link">post #247</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=kEN13XVTkhI" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="JohnF" data-platform="YouTube" data-postnum="251" data-search="the beatles can&#39;t buy me love bass cover  johnf">
+  <a href="https://www.youtube.com/watch?v=z4w5qoPjx9I" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/z4w5qoPjx9I/hqdefault.jpg" alt="The Beatles Can&#39;t Buy Me Love Bass Cover" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="The Beatles Can&#39;t Buy Me Love Bass Cover">The Beatles Can&#39;t Buy Me Love Bass Cover</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/johnf/72/62910_2.png" alt="JohnF" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>JO</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/JohnF" target="_blank" rel="noopener" class="user-link">JohnF</a>
+        <span class="card-date">Feb 7 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/251" target="_blank" rel="noopener" class="post-link">post #251</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=z4w5qoPjx9I" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="TheMadBassist" data-platform="YouTube" data-postnum="254" data-search="elimin8r - twist of cain (danzig cover) #danzig #rockband   themadbassist">
+  <a href="https://youtu.be/pOncV0zNLao?si=UsNd3u-iAvhQzhVj" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/pOncV0zNLao/hqdefault.jpg" alt="Elimin8r - TWIST OF CAIN (Danzig Cover) #danzig #rockband " loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Elimin8r - TWIST OF CAIN (Danzig Cover) #danzig #rockband ">Elimin8r - TWIST OF CAIN (Danzig Cover) #danzig #rockband </div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/themadbassist/72/82589_2.png" alt="TheMadBassist" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>TH</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/TheMadBassist" target="_blank" rel="noopener" class="user-link">TheMadBassist</a>
+        <span class="card-date">Feb 7 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/254" target="_blank" rel="noopener" class="post-link">post #254</a></span>
+      </div>
+      <a href="https://youtu.be/pOncV0zNLao?si=UsNd3u-iAvhQzhVj" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="JustinAndSheba" data-platform="YouTube" data-postnum="267" data-search="official bass covers podcast featuring  @justinandsheba   - ep2  justinandsheba">
+  <a href="https://www.youtube.com/watch?v=ZJ0DdfbTXJM" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/ZJ0DdfbTXJM/hqdefault.jpg" alt="Official Bass Covers Podcast Featuring  @justinandsheba   - EP2" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Official Bass Covers Podcast Featuring  @justinandsheba   - EP2">Official Bass Covers Podcast Featuring  @justinandsheba   - EP2</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/justinandsheba/72/68579_2.png" alt="JustinAndSheba" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>JU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/JustinAndSheba" target="_blank" rel="noopener" class="user-link">JustinAndSheba</a>
+        <span class="card-date">Feb 11 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/267" target="_blank" rel="noopener" class="post-link">post #267</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=ZJ0DdfbTXJM" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="sunDOG" data-platform="YouTube" data-postnum="269" data-search="boss me-90b first test - nine inch nails - the hand that feeds (live)  sundog">
+  <a href="https://www.youtube.com/watch?v=fBoUxFY6LaY" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/fBoUxFY6LaY/hqdefault.jpg" alt="BOSS ME-90B first test - Nine Inch Nails - The Hand That Feeds (Live)" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="BOSS ME-90B first test - Nine Inch Nails - The Hand That Feeds (Live)">BOSS ME-90B first test - Nine Inch Nails - The Hand That Feeds (Live)</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/sundog/72/59900_2.png" alt="sunDOG" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>SU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/sunDOG" target="_blank" rel="noopener" class="user-link">sunDOG</a>
+        <span class="card-date">Feb 14 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/269" target="_blank" rel="noopener" class="post-link">post #269</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=fBoUxFY6LaY" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="justarookie" data-platform="YouTube" data-postnum="271" data-search="anti-flag - police story bass cover  justarookie">
+  <a href="https://www.youtube.com/watch?v=y2_Nk8CmJVo" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/y2_Nk8CmJVo/hqdefault.jpg" alt="Anti-Flag - Police Story bass cover" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Anti-Flag - Police Story bass cover">Anti-Flag - Police Story bass cover</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/justarookie/72/74251_2.png" alt="justarookie" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>JU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/justarookie" target="_blank" rel="noopener" class="user-link">justarookie</a>
+        <span class="card-date">Feb 14 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/271" target="_blank" rel="noopener" class="post-link">post #271</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=y2_Nk8CmJVo" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="TheMadBassist" data-platform="YouTube" data-postnum="273" data-search="feeder (buck rogers) bass cover #feeder #buckrogers #bass   themadbassist">
+  <a href="https://youtu.be/IzmGLMEyVNc?si=ecD2enDX97TQLD9Z" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/IzmGLMEyVNc/hqdefault.jpg" alt="Feeder (Buck Rogers) Bass Cover #feeder #buckrogers #bass " loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Feeder (Buck Rogers) Bass Cover #feeder #buckrogers #bass ">Feeder (Buck Rogers) Bass Cover #feeder #buckrogers #bass </div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/themadbassist/72/82589_2.png" alt="TheMadBassist" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>TH</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/TheMadBassist" target="_blank" rel="noopener" class="user-link">TheMadBassist</a>
+        <span class="card-date">Feb 14 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/273" target="_blank" rel="noopener" class="post-link">post #273</a></span>
+      </div>
+      <a href="https://youtu.be/IzmGLMEyVNc?si=ecD2enDX97TQLD9Z" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="TheMadBassist" data-platform="YouTube" data-postnum="273" data-search="toadies (possum kingdom) bass cover   themadbassist">
+  <a href="https://youtu.be/_t1_ICQN5G8?si=as8jfoOtJL_VXl8f" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/_t1_ICQN5G8/hqdefault.jpg" alt="Toadies (Possum Kingdom) Bass Cover " loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Toadies (Possum Kingdom) Bass Cover ">Toadies (Possum Kingdom) Bass Cover </div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/themadbassist/72/82589_2.png" alt="TheMadBassist" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>TH</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/TheMadBassist" target="_blank" rel="noopener" class="user-link">TheMadBassist</a>
+        <span class="card-date">Feb 14 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/273" target="_blank" rel="noopener" class="post-link">post #273</a></span>
+      </div>
+      <a href="https://youtu.be/_t1_ICQN5G8?si=as8jfoOtJL_VXl8f" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="Professor" data-platform="YouTube" data-postnum="284" data-search="blink-182 - all the small things (bass cover)  professor">
+  <a href="https://www.youtube.com/watch?v=VuPDrARq8Nk" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/VuPDrARq8Nk/hqdefault.jpg" alt="Blink-182 - All the Small Things (Bass cover)" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Blink-182 - All the Small Things (Bass cover)">Blink-182 - All the Small Things (Bass cover)</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/professor/72/83710_2.png" alt="Professor" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>PR</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/Professor" target="_blank" rel="noopener" class="user-link">Professor</a>
+        <span class="card-date">Feb 22 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/284" target="_blank" rel="noopener" class="post-link">post #284</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=VuPDrARq8Nk" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="sunDOG" data-platform="YouTube" data-postnum="289" data-search="fleetwood mac - the chain bass cover  sundog">
+  <a href="https://www.youtube.com/watch?v=6AOdVCuXOt0" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/6AOdVCuXOt0/hqdefault.jpg" alt="Fleetwood Mac - The Chain bass cover" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Fleetwood Mac - The Chain bass cover">Fleetwood Mac - The Chain bass cover</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/sundog/72/59900_2.png" alt="sunDOG" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>SU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/sunDOG" target="_blank" rel="noopener" class="user-link">sunDOG</a>
+        <span class="card-date">Feb 22 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/289" target="_blank" rel="noopener" class="post-link">post #289</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=6AOdVCuXOt0" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="Professor" data-platform="YouTube" data-postnum="292" data-search="otis redding - (sittin&#39; on) the dock of the bay (bass cover)  professor">
+  <a href="https://www.youtube.com/watch?v=5BHe98fKM3k" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/5BHe98fKM3k/hqdefault.jpg" alt="Otis Redding - (Sittin&#39; on) The Dock of the Bay (Bass cover)" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Otis Redding - (Sittin&#39; on) The Dock of the Bay (Bass cover)">Otis Redding - (Sittin&#39; on) The Dock of the Bay (Bass cover)</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/professor/72/83710_2.png" alt="Professor" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>PR</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/Professor" target="_blank" rel="noopener" class="user-link">Professor</a>
+        <span class="card-date">Feb 22 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/292" target="_blank" rel="noopener" class="post-link">post #292</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=5BHe98fKM3k" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="Professor" data-platform="YouTube" data-postnum="292" data-search="foo fighters - learn to fly (bass cover)  professor">
+  <a href="https://www.youtube.com/watch?v=cL43AK9gQUA" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/cL43AK9gQUA/hqdefault.jpg" alt="Foo Fighters - Learn to Fly (Bass cover)" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Foo Fighters - Learn to Fly (Bass cover)">Foo Fighters - Learn to Fly (Bass cover)</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/professor/72/83710_2.png" alt="Professor" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>PR</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/Professor" target="_blank" rel="noopener" class="user-link">Professor</a>
+        <span class="card-date">Feb 22 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/292" target="_blank" rel="noopener" class="post-link">post #292</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=cL43AK9gQUA" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="JustinAndSheba" data-platform="YouTube" data-postnum="304" data-search="black sabbath - lady evil (1980) bass cover/playthrough  justinandsheba">
+  <a href="https://www.youtube.com/watch?v=lBW1VWJA56o" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/lBW1VWJA56o/hqdefault.jpg" alt="Black Sabbath - Lady Evil (1980) bass cover/playthrough" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Black Sabbath - Lady Evil (1980) bass cover/playthrough">Black Sabbath - Lady Evil (1980) bass cover/playthrough</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/justinandsheba/72/68579_2.png" alt="JustinAndSheba" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>JU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/JustinAndSheba" target="_blank" rel="noopener" class="user-link">JustinAndSheba</a>
+        <span class="card-date">Feb 24 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/304" target="_blank" rel="noopener" class="post-link">post #304</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=lBW1VWJA56o" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="justarookie" data-platform="YouTube" data-postnum="310" data-search="black sabbath - paranoid (2012 - remaster) bass cover  justarookie">
+  <a href="https://www.youtube.com/watch?v=UHZdR7SNp5I" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/UHZdR7SNp5I/hqdefault.jpg" alt="Black Sabbath - Paranoid (2012 - Remaster) Bass Cover" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Black Sabbath - Paranoid (2012 - Remaster) Bass Cover">Black Sabbath - Paranoid (2012 - Remaster) Bass Cover</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/justarookie/72/74251_2.png" alt="justarookie" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>JU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/justarookie" target="_blank" rel="noopener" class="user-link">justarookie</a>
+        <span class="card-date">Feb 26 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/310" target="_blank" rel="noopener" class="post-link">post #310</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=UHZdR7SNp5I" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="flappdabass" data-platform="YouTube" data-postnum="315" data-search="any way you want it - bass cover  flappdabass">
+  <a href="https://www.youtube.com/watch?v=rmtZ2LIJh_k" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/rmtZ2LIJh_k/hqdefault.jpg" alt="Any Way You Want It - Bass Cover" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Any Way You Want It - Bass Cover">Any Way You Want It - Bass Cover</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/flappdabass/72/84214_2.png" alt="flappdabass" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>FL</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/flappdabass" target="_blank" rel="noopener" class="user-link">flappdabass</a>
+        <span class="card-date">Feb 28 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/315" target="_blank" rel="noopener" class="post-link">post #315</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=rmtZ2LIJh_k" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="JohnF" data-platform="YouTube" data-postnum="322" data-search="joe walsh - a life of illusion - bass cover  johnf">
+  <a href="https://www.youtube.com/watch?v=K_31o6BghjY" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/K_31o6BghjY/hqdefault.jpg" alt="Joe Walsh - A Life of Illusion - Bass Cover" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Joe Walsh - A Life of Illusion - Bass Cover">Joe Walsh - A Life of Illusion - Bass Cover</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/johnf/72/62910_2.png" alt="JohnF" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>JO</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/JohnF" target="_blank" rel="noopener" class="user-link">JohnF</a>
+        <span class="card-date">Feb 28 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/322" target="_blank" rel="noopener" class="post-link">post #322</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=K_31o6BghjY" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="sunDOG" data-platform="YouTube" data-postnum="325" data-search="adele -  rolling in the deep bass cover  sundog">
+  <a href="https://www.youtube.com/watch?v=pVacrJnpMTY" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/pVacrJnpMTY/hqdefault.jpg" alt="Adele -  Rolling in the Deep bass cover" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Adele -  Rolling in the Deep bass cover">Adele -  Rolling in the Deep bass cover</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/sundog/72/59900_2.png" alt="sunDOG" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>SU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/sunDOG" target="_blank" rel="noopener" class="user-link">sunDOG</a>
+        <span class="card-date">Feb 28 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/325" target="_blank" rel="noopener" class="post-link">post #325</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=pVacrJnpMTY" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="THRILLHO" data-platform="YouTube" data-postnum="333" data-search="nirvana - come as you are (bass cover)  thrillho">
+  <a href="https://www.youtube.com/watch?v=jHcQQSCqYYE" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/jHcQQSCqYYE/hqdefault.jpg" alt="Nirvana - Come As You Are (Bass cover)" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Nirvana - Come As You Are (Bass cover)">Nirvana - Come As You Are (Bass cover)</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/thrillho/72/79634_2.png" alt="THRILLHO" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>TH</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/THRILLHO" target="_blank" rel="noopener" class="user-link">THRILLHO</a>
+        <span class="card-date">Mar 4 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/333" target="_blank" rel="noopener" class="post-link">post #333</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=jHcQQSCqYYE" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="Professor" data-platform="YouTube" data-postnum="340" data-search="neil diamond - cracklin&#39; rosie (bass cover)  professor">
+  <a href="https://www.youtube.com/watch?v=CN3ooNUdYi4" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/CN3ooNUdYi4/hqdefault.jpg" alt="Neil Diamond - Cracklin&#39; Rosie (Bass cover)" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Neil Diamond - Cracklin&#39; Rosie (Bass cover)">Neil Diamond - Cracklin&#39; Rosie (Bass cover)</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/professor/72/83710_2.png" alt="Professor" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>PR</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/Professor" target="_blank" rel="noopener" class="user-link">Professor</a>
+        <span class="card-date">Mar 7 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/340" target="_blank" rel="noopener" class="post-link">post #340</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=CN3ooNUdYi4" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="Professor" data-platform="YouTube" data-postnum="340" data-search="creedence clearwater revival - have you ever seen the rain (bass cover)  professor">
+  <a href="https://www.youtube.com/watch?v=gIMxEMDyYHI" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/gIMxEMDyYHI/hqdefault.jpg" alt="Creedence Clearwater Revival - Have You Ever Seen the Rain (Bass cover)" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Creedence Clearwater Revival - Have You Ever Seen the Rain (Bass cover)">Creedence Clearwater Revival - Have You Ever Seen the Rain (Bass cover)</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/professor/72/83710_2.png" alt="Professor" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>PR</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/Professor" target="_blank" rel="noopener" class="user-link">Professor</a>
+        <span class="card-date">Mar 7 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/340" target="_blank" rel="noopener" class="post-link">post #340</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=gIMxEMDyYHI" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="sunDOG" data-platform="YouTube" data-postnum="345" data-search="fear factory &amp; gary numan - cars bass cover   sundog">
+  <a href="https://www.youtube.com/watch?v=M8gHveWCci4" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/M8gHveWCci4/hqdefault.jpg" alt="Fear Factory &amp; Gary Numan - Cars bass cover " loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Fear Factory &amp; Gary Numan - Cars bass cover ">Fear Factory &amp; Gary Numan - Cars bass cover </div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/sundog/72/59900_2.png" alt="sunDOG" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>SU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/sunDOG" target="_blank" rel="noopener" class="user-link">sunDOG</a>
+        <span class="card-date">Mar 8 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/345" target="_blank" rel="noopener" class="post-link">post #345</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=M8gHveWCci4" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="BassyBunch" data-platform="YouTube" data-postnum="347" data-search="[unplugged the synth] avicii - without you [bass cover]  bassybunch">
+  <a href="https://www.youtube.com/watch?v=QPe86YsZJYY" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/QPe86YsZJYY/hqdefault.jpg" alt="[UNPLUGGED THE SYNTH] Avicii - Without You [Bass Cover]" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="[UNPLUGGED THE SYNTH] Avicii - Without You [Bass Cover]">[UNPLUGGED THE SYNTH] Avicii - Without You [Bass Cover]</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/bassybunch/72/73616_2.png" alt="BassyBunch" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>BA</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/BassyBunch" target="_blank" rel="noopener" class="user-link">BassyBunch</a>
+        <span class="card-date">Mar 9 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/347" target="_blank" rel="noopener" class="post-link">post #347</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=QPe86YsZJYY" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="KaiserSoze" data-platform="YouTube" data-postnum="353" data-search="pixies - where is my mind - bass cover (with tabs)  kaisersoze">
+  <a href="https://www.youtube.com/watch?v=_NVXl6EeMX8" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/_NVXl6EeMX8/hqdefault.jpg" alt="Pixies - Where is my mind - Bass cover (with tabs)" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Pixies - Where is my mind - Bass cover (with tabs)">Pixies - Where is my mind - Bass cover (with tabs)</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/kaisersoze/72/84702_2.png" alt="KaiserSoze" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>KA</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/KaiserSoze" target="_blank" rel="noopener" class="user-link">KaiserSoze</a>
+        <span class="card-date">Mar 11 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/353" target="_blank" rel="noopener" class="post-link">post #353</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=_NVXl6EeMX8" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="justarookie" data-platform="YouTube" data-postnum="356" data-search="sum 41 - pull the curtain bass cover  justarookie">
+  <a href="https://www.youtube.com/watch?v=HX4WzWB8zEo" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/HX4WzWB8zEo/hqdefault.jpg" alt="Sum 41 - Pull the Curtain bass cover" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Sum 41 - Pull the Curtain bass cover">Sum 41 - Pull the Curtain bass cover</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/justarookie/72/74251_2.png" alt="justarookie" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>JU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/justarookie" target="_blank" rel="noopener" class="user-link">justarookie</a>
+        <span class="card-date">Mar 12 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/356" target="_blank" rel="noopener" class="post-link">post #356</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=HX4WzWB8zEo" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="JustinAndSheba" data-platform="YouTube" data-postnum="357" data-search="mel mcdaniel - baby&#39;s got her blue jeans on (1984) bass cover/playthrough  justinandsheba">
+  <a href="https://www.youtube.com/watch?v=4wgxCbcf6b4" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/4wgxCbcf6b4/hqdefault.jpg" alt="Mel McDaniel - Baby&#39;s Got Her Blue Jeans On (1984) bass cover/playthrough" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Mel McDaniel - Baby&#39;s Got Her Blue Jeans On (1984) bass cover/playthrough">Mel McDaniel - Baby&#39;s Got Her Blue Jeans On (1984) bass cover/playthrough</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/justinandsheba/72/68579_2.png" alt="JustinAndSheba" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>JU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/JustinAndSheba" target="_blank" rel="noopener" class="user-link">JustinAndSheba</a>
+        <span class="card-date">Mar 13 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/357" target="_blank" rel="noopener" class="post-link">post #357</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=4wgxCbcf6b4" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="BumbleJazz" data-platform="YouTube" data-postnum="359" data-search="spiritbox - belcarra (bass cover)  bumblejazz">
+  <a href="https://www.youtube.com/watch?v=oi4QpRknXA8" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/oi4QpRknXA8/hqdefault.jpg" alt="Spiritbox - Belcarra (Bass Cover)" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Spiritbox - Belcarra (Bass Cover)">Spiritbox - Belcarra (Bass Cover)</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/bumblejazz/72/64185_2.png" alt="BumbleJazz" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>BU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/BumbleJazz" target="_blank" rel="noopener" class="user-link">BumbleJazz</a>
+        <span class="card-date">Mar 14 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/359" target="_blank" rel="noopener" class="post-link">post #359</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=oi4QpRknXA8" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="Mktony32" data-platform="YouTube" data-postnum="361" data-search="pink pony club by chappell roan (bass cover)  mktony32">
+  <a href="https://www.youtube.com/watch?v=brMhk-MBLdM" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/brMhk-MBLdM/hqdefault.jpg" alt="Pink Pony Club by Chappell Roan (Bass Cover)" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Pink Pony Club by Chappell Roan (Bass Cover)">Pink Pony Club by Chappell Roan (Bass Cover)</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/mktony32/72/83017_2.png" alt="Mktony32" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>MK</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/Mktony32" target="_blank" rel="noopener" class="user-link">Mktony32</a>
+        <span class="card-date">Mar 14 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/361" target="_blank" rel="noopener" class="post-link">post #361</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=brMhk-MBLdM" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="sunDOG" data-platform="YouTube" data-postnum="363" data-search="taylor swift - the fate of ophelia bass cover   sundog">
+  <a href="https://www.youtube.com/watch?v=pbW3GetmGZY" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/pbW3GetmGZY/hqdefault.jpg" alt="Taylor Swift - The Fate of Ophelia bass cover " loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Taylor Swift - The Fate of Ophelia bass cover ">Taylor Swift - The Fate of Ophelia bass cover </div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/sundog/72/59900_2.png" alt="sunDOG" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>SU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/sunDOG" target="_blank" rel="noopener" class="user-link">sunDOG</a>
+        <span class="card-date">Mar 14 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/363" target="_blank" rel="noopener" class="post-link">post #363</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=pbW3GetmGZY" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="BassyBunch" data-platform="YouTube" data-postnum="371" data-search="[pull of the earth] john mayer - gravity [bass cover]  bassybunch">
+  <a href="https://www.youtube.com/watch?v=kd_ou2lwSnQ" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/kd_ou2lwSnQ/hqdefault.jpg" alt="[PULL OF THE EARTH] John Mayer - Gravity [Bass Cover]" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="[PULL OF THE EARTH] John Mayer - Gravity [Bass Cover]">[PULL OF THE EARTH] John Mayer - Gravity [Bass Cover]</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/bassybunch/72/73616_2.png" alt="BassyBunch" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>BA</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/BassyBunch" target="_blank" rel="noopener" class="user-link">BassyBunch</a>
+        <span class="card-date">Mar 15 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/371" target="_blank" rel="noopener" class="post-link">post #371</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=kd_ou2lwSnQ" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="Ed" data-platform="YouTube" data-postnum="372" data-search="vabank ragtime - henryk kuźniak (bass cover)  ed">
+  <a href="https://www.youtube.com/watch?v=kqBGyZaxmes" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/kqBGyZaxmes/hqdefault.jpg" alt="Vabank ragtime - Henryk Kuźniak (bass cover)" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Vabank ragtime - Henryk Kuźniak (bass cover)">Vabank ragtime - Henryk Kuźniak (bass cover)</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/ed/72/76644_2.png" alt="Ed" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>ED</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/Ed" target="_blank" rel="noopener" class="user-link">Ed</a>
+        <span class="card-date">Mar 15 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/372" target="_blank" rel="noopener" class="post-link">post #372</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=kqBGyZaxmes" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="MrFrench" data-platform="YouTube" data-postnum="377" data-search="the cranberries- zombie bass cover  mrfrench">
+  <a href="https://www.youtube.com/watch?v=0VvVddExgjY" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/0VvVddExgjY/hqdefault.jpg" alt="The Cranberries- Zombie Bass Cover" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="The Cranberries- Zombie Bass Cover">The Cranberries- Zombie Bass Cover</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/mrfrench/72/84775_2.png" alt="MrFrench" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>MR</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/MrFrench" target="_blank" rel="noopener" class="user-link">MrFrench</a>
+        <span class="card-date">Mar 15 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/377" target="_blank" rel="noopener" class="post-link">post #377</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=0VvVddExgjY" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="JustinAndSheba" data-platform="YouTube" data-postnum="382" data-search="the ides of march - vehicle (1970) bass cover/playthrough  justinandsheba">
+  <a href="https://www.youtube.com/watch?v=o8i0V4lgP5E" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/o8i0V4lgP5E/hqdefault.jpg" alt="The Ides of March - Vehicle (1970) bass cover/playthrough" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="The Ides of March - Vehicle (1970) bass cover/playthrough">The Ides of March - Vehicle (1970) bass cover/playthrough</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/justinandsheba/72/68579_2.png" alt="JustinAndSheba" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>JU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/JustinAndSheba" target="_blank" rel="noopener" class="user-link">JustinAndSheba</a>
+        <span class="card-date">Mar 18 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/382" target="_blank" rel="noopener" class="post-link">post #382</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=o8i0V4lgP5E" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="katieann1988" data-platform="Vimeo" data-postnum="383" data-search="https://vimeo.com/1175198430  katieann1988">
+  <a href="https://vimeo.com/1175198430" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><div class="no-thumb"><div class="no-thumb-icon">&#9654;</div><div class="no-thumb-text">Video Thumbnail Unavailable</div></div>
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#e8f4ff;color:#0077b5">VI</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="https://vimeo.com/1175198430">https://vimeo.com/1175198430</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/katieann1988/72/84861_2.png" alt="katieann1988" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>KA</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/katieann1988" target="_blank" rel="noopener" class="user-link">katieann1988</a>
+        <span class="card-date">Mar 18 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/383" target="_blank" rel="noopener" class="post-link">post #383</a></span>
+      </div>
+      <a href="https://vimeo.com/1175198430" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="katieann1988" data-platform="YouTube" data-postnum="383" data-search="https://www.youtube.com/watch?v=vquqsrlh1jc  katieann1988">
+  <a href="https://www.youtube.com/watch?v=VqUqSRlh1Jc" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><div class="no-thumb"><div class="no-thumb-icon">&#9654;</div><div class="no-thumb-text">Video Thumbnail Unavailable</div></div>
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="https://www.youtube.com/watch?v=VqUqSRlh1Jc">https://www.youtube.com/watch?v=VqUqSRlh1Jc</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/katieann1988/72/84861_2.png" alt="katieann1988" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>KA</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/katieann1988" target="_blank" rel="noopener" class="user-link">katieann1988</a>
+        <span class="card-date">Mar 18 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/383" target="_blank" rel="noopener" class="post-link">post #383</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=VqUqSRlh1Jc" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="Vader" data-platform="YouTube" data-postnum="396" data-search="sepultura - the hunt bass cover  vader">
+  <a href="https://www.youtube.com/watch?v=nv0laO8oJN0" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/nv0laO8oJN0/hqdefault.jpg" alt="Sepultura - The Hunt Bass Cover" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Sepultura - The Hunt Bass Cover">Sepultura - The Hunt Bass Cover</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/vader/72/64413_2.png" alt="Vader" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>VA</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/Vader" target="_blank" rel="noopener" class="user-link">Vader</a>
+        <span class="card-date">Mar 21 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/396" target="_blank" rel="noopener" class="post-link">post #396</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=nv0laO8oJN0" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="Professor" data-platform="YouTube" data-postnum="404" data-search="nirvana - about a girl (bass cover)  professor">
+  <a href="https://www.youtube.com/watch?v=FKajnDNdnWw" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/FKajnDNdnWw/hqdefault.jpg" alt="Nirvana - About a Girl (Bass cover)" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Nirvana - About a Girl (Bass cover)">Nirvana - About a Girl (Bass cover)</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/professor/72/83710_2.png" alt="Professor" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>PR</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/Professor" target="_blank" rel="noopener" class="user-link">Professor</a>
+        <span class="card-date">Mar 22 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/404" target="_blank" rel="noopener" class="post-link">post #404</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=FKajnDNdnWw" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="Professor" data-platform="YouTube" data-postnum="404" data-search="carly simon - you&#39;re so vain (bass cover)  professor">
+  <a href="https://www.youtube.com/watch?v=j6q0I9CBd5E" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/j6q0I9CBd5E/hqdefault.jpg" alt="Carly Simon - You&#39;re So Vain (Bass cover)" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Carly Simon - You&#39;re So Vain (Bass cover)">Carly Simon - You&#39;re So Vain (Bass cover)</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/professor/72/83710_2.png" alt="Professor" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>PR</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/Professor" target="_blank" rel="noopener" class="user-link">Professor</a>
+        <span class="card-date">Mar 22 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/404" target="_blank" rel="noopener" class="post-link">post #404</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=j6q0I9CBd5E" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="andrea-slnd" data-platform="Vimeo" data-postnum="408" data-search="https://vimeo.com/1175198430  andrea-slnd">
+  <a href="https://vimeo.com/1175198430" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><div class="no-thumb"><div class="no-thumb-icon">&#9654;</div><div class="no-thumb-text">Video Thumbnail Unavailable</div></div>
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#e8f4ff;color:#0077b5">VI</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="https://vimeo.com/1175198430">https://vimeo.com/1175198430</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/andrea-slnd/72/70651_2.png" alt="andrea-slnd" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>AN</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/andrea-slnd" target="_blank" rel="noopener" class="user-link">andrea-slnd</a>
+        <span class="card-date">Mar 22 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/408" target="_blank" rel="noopener" class="post-link">post #408</a></span>
+      </div>
+      <a href="https://vimeo.com/1175198430" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="fennario" data-platform="YouTube" data-postnum="409" data-search="fix iphone or ipad screen recorder audio out of sync  fennario">
+  <a href="https://www.youtube.com/watch?v=yOm192j3L6c" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/yOm192j3L6c/hqdefault.jpg" alt="FIX Iphone Or Ipad Screen Recorder Audio Out Of Sync" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="FIX Iphone Or Ipad Screen Recorder Audio Out Of Sync">FIX Iphone Or Ipad Screen Recorder Audio Out Of Sync</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/fennario/72/85272_2.png" alt="fennario" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>FE</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/fennario" target="_blank" rel="noopener" class="user-link">fennario</a>
+        <span class="card-date">Mar 22 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/409" target="_blank" rel="noopener" class="post-link">post #409</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=yOm192j3L6c" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="DirkTungsten" data-platform="YouTube" data-postnum="412" data-search="wet leg - mangetout bass cover  dirktungsten">
+  <a href="https://www.youtube.com/watch?v=2B6QyxIioyw" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/2B6QyxIioyw/hqdefault.jpg" alt="Wet Leg - Mangetout Bass Cover" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Wet Leg - Mangetout Bass Cover">Wet Leg - Mangetout Bass Cover</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/dirktungsten/72/77331_2.png" alt="DirkTungsten" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>DI</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/DirkTungsten" target="_blank" rel="noopener" class="user-link">DirkTungsten</a>
+        <span class="card-date">Mar 23 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/412" target="_blank" rel="noopener" class="post-link">post #412</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=2B6QyxIioyw" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="katieann1988" data-platform="Vimeo" data-postnum="414" data-search="https://vimeo.com/1176037444  katieann1988">
+  <a href="https://vimeo.com/1176037444" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><div class="no-thumb"><div class="no-thumb-icon">&#9654;</div><div class="no-thumb-text">Video Thumbnail Unavailable</div></div>
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#e8f4ff;color:#0077b5">VI</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="https://vimeo.com/1176037444">https://vimeo.com/1176037444</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/katieann1988/72/84861_2.png" alt="katieann1988" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>KA</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/katieann1988" target="_blank" rel="noopener" class="user-link">katieann1988</a>
+        <span class="card-date">Mar 23 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/414" target="_blank" rel="noopener" class="post-link">post #414</a></span>
+      </div>
+      <a href="https://vimeo.com/1176037444" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="BumbleJazz" data-platform="YouTube" data-postnum="415" data-search="loathe - i let it in and it took everything... (bass cover)  bumblejazz">
+  <a href="https://www.youtube.com/watch?v=bb2yDrTC6tw" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/bb2yDrTC6tw/hqdefault.jpg" alt="Loathe - I Let It In and It Took Everything... (Bass Cover)" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Loathe - I Let It In and It Took Everything... (Bass Cover)">Loathe - I Let It In and It Took Everything... (Bass Cover)</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/bumblejazz/72/64185_2.png" alt="BumbleJazz" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>BU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/BumbleJazz" target="_blank" rel="noopener" class="user-link">BumbleJazz</a>
+        <span class="card-date">Mar 23 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/415" target="_blank" rel="noopener" class="post-link">post #415</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=bb2yDrTC6tw" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="uttaraag" data-platform="YouTube" data-postnum="421" data-search="sutphin boulevard - blood orange (bass cover)  uttaraag">
+  <a href="https://www.youtube.com/watch?v=FiB-XdwvFk0" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/FiB-XdwvFk0/hqdefault.jpg" alt="Sutphin Boulevard - Blood Orange (Bass Cover)" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Sutphin Boulevard - Blood Orange (Bass Cover)">Sutphin Boulevard - Blood Orange (Bass Cover)</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/uttaraag/72/79668_2.png" alt="uttaraag" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>UT</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/uttaraag" target="_blank" rel="noopener" class="user-link">uttaraag</a>
+        <span class="card-date">Mar 24 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/421" target="_blank" rel="noopener" class="post-link">post #421</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=FiB-XdwvFk0" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="uttaraag" data-platform="YouTube" data-postnum="421" data-search="high on love - eddie c (bass cover)  uttaraag">
+  <a href="https://www.youtube.com/watch?v=KbpIFBCNFzo" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/KbpIFBCNFzo/hqdefault.jpg" alt="High On Love - Eddie C (Bass Cover)" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="High On Love - Eddie C (Bass Cover)">High On Love - Eddie C (Bass Cover)</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/uttaraag/72/79668_2.png" alt="uttaraag" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>UT</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/uttaraag" target="_blank" rel="noopener" class="user-link">uttaraag</a>
+        <span class="card-date">Mar 24 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/421" target="_blank" rel="noopener" class="post-link">post #421</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=KbpIFBCNFzo" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="groaner" data-platform="YouTube" data-postnum="422" data-search="wonderful tonight bass cover  groaner">
+  <a href="https://www.youtube.com/watch?v=-JGQ8IpKwbQ" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/-JGQ8IpKwbQ/hqdefault.jpg" alt="Wonderful Tonight Bass Cover" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Wonderful Tonight Bass Cover">Wonderful Tonight Bass Cover</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/groaner/72/65104_2.png" alt="groaner" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>GR</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/groaner" target="_blank" rel="noopener" class="user-link">groaner</a>
+        <span class="card-date">Mar 26 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/422" target="_blank" rel="noopener" class="post-link">post #422</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=-JGQ8IpKwbQ" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="JustinAndSheba" data-platform="YouTube" data-postnum="424" data-search="red hot chili peppers - especially in michigan (2006) bass cover/playthrough  justinandsheba">
+  <a href="https://www.youtube.com/watch?v=UJSxcBsp-SQ" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/UJSxcBsp-SQ/hqdefault.jpg" alt="Red Hot Chili Peppers - Especially in Michigan (2006) bass cover/playthrough" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Red Hot Chili Peppers - Especially in Michigan (2006) bass cover/playthrough">Red Hot Chili Peppers - Especially in Michigan (2006) bass cover/playthrough</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/justinandsheba/72/68579_2.png" alt="JustinAndSheba" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>JU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/JustinAndSheba" target="_blank" rel="noopener" class="user-link">JustinAndSheba</a>
+        <span class="card-date">Mar 27 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/424" target="_blank" rel="noopener" class="post-link">post #424</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=UJSxcBsp-SQ" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="faydout" data-platform="YouTube" data-postnum="426" data-search="social distortion - story of my life  faydout">
+  <a href="https://www.youtube.com/watch?v=7rFpN0r_24g" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/7rFpN0r_24g/hqdefault.jpg" alt="Social Distortion - Story of My Life" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Social Distortion - Story of My Life">Social Distortion - Story of My Life</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/faydout/72/57513_2.png" alt="faydout" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>FA</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/faydout" target="_blank" rel="noopener" class="user-link">faydout</a>
+        <span class="card-date">Mar 29 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/426" target="_blank" rel="noopener" class="post-link">post #426</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=7rFpN0r_24g" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="sunDOG" data-platform="YouTube" data-postnum="429" data-search="foo fighters - learn to fly bass cover (acoustic version)   sundog">
+  <a href="https://www.youtube.com/watch?v=tSEMT0EDO6g" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/tSEMT0EDO6g/hqdefault.jpg" alt="Foo Fighters - Learn to Fly bass cover (Acoustic version) " loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Foo Fighters - Learn to Fly bass cover (Acoustic version) ">Foo Fighters - Learn to Fly bass cover (Acoustic version) </div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/sundog/72/59900_2.png" alt="sunDOG" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>SU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/sunDOG" target="_blank" rel="noopener" class="user-link">sunDOG</a>
+        <span class="card-date">Mar 29 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/429" target="_blank" rel="noopener" class="post-link">post #429</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=tSEMT0EDO6g" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="Al1885" data-platform="YouTube" data-postnum="460" data-search="4 string change the world live  al1885">
+  <a href="https://www.youtube.com/watch?v=gVV8tFDF_ug" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/gVV8tFDF_ug/hqdefault.jpg" alt="4 string change the world live" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="4 string change the world live">4 string change the world live</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/al1885/72/16361_2.png" alt="Al1885" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>AL</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/Al1885" target="_blank" rel="noopener" class="user-link">Al1885</a>
+        <span class="card-date">Apr 2 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/460" target="_blank" rel="noopener" class="post-link">post #460</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=gVV8tFDF_ug" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="joergkutter" data-platform="Vimeo" data-postnum="462" data-search="therewillneverbeanotheryou  joergkutter">
+  <a href="https://vimeo.com/1179635262" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.vimeocdn.com/video/2141533919-7974ec660b0c1488469edf90e35034d308b0f6e1ec8c184c621aee00c8b51f65-d_295x166?region=us" alt="ThereWillNeverBeAnotherYou" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#e8f4ff;color:#0077b5">VI</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="ThereWillNeverBeAnotherYou">ThereWillNeverBeAnotherYou</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/joergkutter/72/659_2.png" alt="joergkutter" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>JO</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/joergkutter" target="_blank" rel="noopener" class="user-link">joergkutter</a>
+        <span class="card-date">Apr 2 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/462" target="_blank" rel="noopener" class="post-link">post #462</a></span>
+      </div>
+      <a href="https://vimeo.com/1179635262" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="sunDOG" data-platform="YouTube" data-postnum="470" data-search="p!nk - who knew bass cover  sundog">
+  <a href="https://www.youtube.com/watch?v=mULHzE6Ky_Y" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/mULHzE6Ky_Y/hqdefault.jpg" alt="P!nk - Who Knew bass cover" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="P!nk - Who Knew bass cover">P!nk - Who Knew bass cover</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/sundog/72/59900_2.png" alt="sunDOG" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>SU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/sunDOG" target="_blank" rel="noopener" class="user-link">sunDOG</a>
+        <span class="card-date">Apr 3 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/470" target="_blank" rel="noopener" class="post-link">post #470</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=mULHzE6Ky_Y" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="faydout" data-platform="YouTube" data-postnum="479" data-search="ride - vapour trail  faydout">
+  <a href="https://www.youtube.com/watch?v=OjeB7D6uWYY" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/OjeB7D6uWYY/hqdefault.jpg" alt="Ride - Vapour Trail" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Ride - Vapour Trail">Ride - Vapour Trail</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/faydout/72/57513_2.png" alt="faydout" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>FA</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/faydout" target="_blank" rel="noopener" class="user-link">faydout</a>
+        <span class="card-date">Apr 4 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/479" target="_blank" rel="noopener" class="post-link">post #479</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=OjeB7D6uWYY" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="EverC" data-platform="YouTube" data-postnum="483" data-search="https://youtu.be/adia82afzjm  everc">
+  <a href="https://youtu.be/AdIA82AFzjM" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><div class="no-thumb"><div class="no-thumb-icon">&#9654;</div><div class="no-thumb-text">Video Thumbnail Unavailable</div></div>
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="https://youtu.be/AdIA82AFzjM">https://youtu.be/AdIA82AFzjM</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/everc/72/71756_2.png" alt="EverC" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>EV</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/EverC" target="_blank" rel="noopener" class="user-link">EverC</a>
+        <span class="card-date">Apr 5 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/483" target="_blank" rel="noopener" class="post-link">post #483</a></span>
+      </div>
+      <a href="https://youtu.be/AdIA82AFzjM" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="EverC" data-platform="YouTube" data-postnum="484" data-search="https://youtu.be/kyiplkyz0ls  everc">
+  <a href="https://youtu.be/kyipLkyZ0ls" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><div class="no-thumb"><div class="no-thumb-icon">&#9654;</div><div class="no-thumb-text">Video Thumbnail Unavailable</div></div>
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="https://youtu.be/kyipLkyZ0ls">https://youtu.be/kyipLkyZ0ls</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/everc/72/71756_2.png" alt="EverC" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>EV</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/EverC" target="_blank" rel="noopener" class="user-link">EverC</a>
+        <span class="card-date">Apr 5 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/484" target="_blank" rel="noopener" class="post-link">post #484</a></span>
+      </div>
+      <a href="https://youtu.be/kyipLkyZ0ls" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="faydout" data-platform="YouTube" data-postnum="485" data-search="cocteau twins - wolf in the breast  faydout">
+  <a href="https://www.youtube.com/watch?v=uvGS49Qs4XQ" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/uvGS49Qs4XQ/hqdefault.jpg" alt="Cocteau Twins - Wolf in the Breast" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Cocteau Twins - Wolf in the Breast">Cocteau Twins - Wolf in the Breast</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/faydout/72/57513_2.png" alt="faydout" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>FA</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/faydout" target="_blank" rel="noopener" class="user-link">faydout</a>
+        <span class="card-date">Apr 5 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/485" target="_blank" rel="noopener" class="post-link">post #485</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=uvGS49Qs4XQ" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="JerryP" data-platform="Vimeo" data-postnum="488" data-search="fever - bass cover  jerryp">
+  <a href="https://vimeo.com/1181380883" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.vimeocdn.com/video/2143734647-ba23f8ca3a173646d5ee74395e1f544cebdc3123256ab5d5b035b4002c3598a8-d_295x166?region=us" alt="Fever - Bass Cover" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#e8f4ff;color:#0077b5">VI</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Fever - Bass Cover">Fever - Bass Cover</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/jerryp/72/70450_2.png" alt="JerryP" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>JE</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/JerryP" target="_blank" rel="noopener" class="user-link">JerryP</a>
+        <span class="card-date">Apr 9 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/488" target="_blank" rel="noopener" class="post-link">post #488</a></span>
+      </div>
+      <a href="https://vimeo.com/1181380883" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="TheMaartian" data-platform="YouTube" data-postnum="493" data-search="these is the bass  themaartian">
+  <a href="https://www.youtube.com/watch?v=i5gCDqi6SQY" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/i5gCDqi6SQY/hqdefault.jpg" alt="These is the Bass" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="These is the Bass">These is the Bass</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/themaartian/72/65931_2.png" alt="TheMaartian" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>TH</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/TheMaartian" target="_blank" rel="noopener" class="user-link">TheMaartian</a>
+        <span class="card-date">Apr 10 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/493" target="_blank" rel="noopener" class="post-link">post #493</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=i5gCDqi6SQY" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+    </div>
+  </main>
+</div>
+<script>let activeUser='all';
+function filterUser(u){
+  activeUser=u;
+  document.querySelectorAll('.sitem').forEach(el=>el.classList.toggle('active',el.dataset.user===u));
+  applyFilters();
+}
+function applyFilters(){
+  const q=document.getElementById('q').value.toLowerCase();
+  const pf=document.getElementById('pf').value;
+  const srt=document.getElementById('srt').value;
+  const cards=[...document.querySelectorAll('.card')];
+  let vis=0;const users=new Set();
+  cards.forEach(c=>{
+    const show=(activeUser==='all'||c.dataset.user===activeUser)
+      &&(pf==='all'||c.dataset.platform===pf)
+      &&(!q||c.dataset.search.includes(q));
+    c.classList.toggle('hidden',!show);
+    if(show){vis++;users.add(c.dataset.user);}
+  });
+  // Sort visible cards
+  const grid=document.getElementById('grid');
+  const vis_cards=cards.filter(c=>!c.classList.contains('hidden'));
+  if(srt==='oldest') vis_cards.sort((a,b)=>+a.dataset.postnum - +b.dataset.postnum);
+  else if(srt==='user') vis_cards.sort((a,b)=>a.dataset.user.localeCompare(b.dataset.user)||+a.dataset.postnum - +b.dataset.postnum);
+  else vis_cards.sort((a,b)=>+b.dataset.postnum - +a.dataset.postnum);
+  vis_cards.forEach(c=>grid.appendChild(c));
+  document.getElementById('cl').textContent=vis+' video'+(vis!==1?'s':'');
+  document.getElementById('sv').textContent=vis;
+  document.getElementById('su').textContent=users.size;
+}
+</script>
+</body>
+</html>
