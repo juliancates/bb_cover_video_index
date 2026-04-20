@@ -1,36 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>BassBuzz Cover Index</title>
-<style>:root{--bg:#f5f4f0;--surface:#fff;--border:#e2e0d8;--text:#1a1917;--muted:#6b6963;
-  --accent:#e8572a;--accent-bg:#fef2ee;--tag:#eae8e2;}
+<style>/* ── Light theme (default) ── */
+:root{
+  --bg:#f2f2f2;--surface:#ffffff;--border:#d8d8d8;
+  --text:#1a1a1a;--muted:#777777;
+  --accent:#f97316;--accent-bg:#fff3e8;--accent-hover:#ea6a05;
+  --tag:#e4e4e4;--tag-text:#555;
+  --header-bg:#ffffff;--header-border:#d8d8d8;
+  --card-shadow:rgba(0,0,0,.07);
+}
+/* ── Dark theme ── */
+[data-theme="dark"]{
+  --bg:#111111;--surface:#1e1e1e;--border:#2e2e2e;
+  --text:#f0f0f0;--muted:#888888;
+  --accent:#f97316;--accent-bg:#2a1a08;--accent-hover:#fb923c;
+  --tag:#2a2a2a;--tag-text:#999;
+  --header-bg:#1a1a1a;--header-border:#2e2e2e;
+  --card-shadow:rgba(0,0,0,.4);
+}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:var(--bg);color:var(--text);font-size:14px;line-height:1.5}
+  background:var(--bg);color:var(--text);font-size:14px;line-height:1.5;
+  transition:background .2s,color .2s}
 a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
+a:hover{color:var(--accent-hover);text-decoration:underline}
 
-header{background:var(--surface);border-bottom:1px solid var(--border);
+header{background:var(--header-bg);border-bottom:1px solid var(--header-border);
   padding:12px 22px;position:sticky;top:0;z-index:20;
-  display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-header h1{font-size:16px;font-weight:600}
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  transition:background .2s,border-color .2s}
+header h1{font-size:16px;font-weight:700;letter-spacing:-.01em}
 header p{font-size:12px;color:var(--muted)}
+
+/* ── Theme toggle switch ── */
+.theme-toggle{display:flex;align-items:center;gap:8px;margin-left:auto;
+  cursor:pointer;user-select:none;flex-shrink:0}
+.theme-toggle-label{font-size:12px;color:var(--muted);white-space:nowrap}
+.toggle-track{width:40px;height:22px;border-radius:11px;
+  background:var(--border);border:1px solid var(--border);
+  position:relative;cursor:pointer;transition:background .25s,border-color .25s;
+  flex-shrink:0}
+[data-theme="dark"] .toggle-track{background:var(--accent);border-color:var(--accent)}
+.toggle-thumb{width:16px;height:16px;border-radius:50%;background:#fff;
+  position:absolute;top:2px;left:2px;
+  transition:transform .25s;box-shadow:0 1px 3px rgba(0,0,0,.35)}
+[data-theme="dark"] .toggle-thumb{transform:translateX(18px)}
+.toggle-icon{font-size:14px;line-height:1;width:18px;text-align:center}
 
 .layout{display:flex;max-width:1240px;margin:0 auto}
 
 .sidebar{width:206px;flex-shrink:0;padding:12px 8px;
   border-right:1px solid var(--border);
-  position:sticky;top:45px;height:calc(100vh - 45px);overflow-y:auto}
+  position:sticky;top:45px;height:calc(100vh - 45px);overflow-y:auto;
+  transition:border-color .2s,background .2s}
 .sidebar-label{font-size:10px;text-transform:uppercase;letter-spacing:.07em;
   color:var(--muted);padding:0 8px;margin:10px 0 4px}
 .sitem{display:flex;align-items:center;gap:7px;padding:5px 8px;
-  border-radius:7px;cursor:pointer;font-size:13px;color:var(--text);user-select:none}
+  border-radius:7px;cursor:pointer;font-size:13px;color:var(--text);user-select:none;
+  transition:background .15s,color .15s}
 .sitem:hover,.sitem.active{background:var(--accent-bg);color:var(--accent)}
 .av,.av-init{width:22px;height:22px;border-radius:50%;flex-shrink:0}
 .av{object-fit:cover;background:var(--tag)}
-.av-init{background:var(--tag);color:var(--muted);font-size:9px;font-weight:700;
+.av-init{background:var(--tag);color:var(--tag-text);font-size:9px;font-weight:700;
   display:flex;align-items:center;justify-content:center}
 .uname{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .cnt{font-size:11px;color:var(--muted);background:var(--tag);
@@ -47,7 +82,8 @@ header p{font-size:12px;color:var(--muted)}
 .toolbar{display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap;align-items:center}
 .toolbar input[type=search],.toolbar select{font-size:13px;padding:6px 10px;
   border:1px solid var(--border);border-radius:7px;
-  background:var(--surface);color:var(--text)}
+  background:var(--surface);color:var(--text);
+  transition:background .2s,border-color .2s,color .2s}
 .toolbar input[type=search]{flex:1;min-width:160px}
 .count-label{font-size:12px;color:var(--muted);margin-left:auto;white-space:nowrap}
 
@@ -56,7 +92,8 @@ header p{font-size:12px;color:var(--muted)}
 .date-row label{font-size:12px;color:var(--muted);white-space:nowrap}
 .date-row input[type=date]{font-size:12px;padding:5px 8px;
   border:1px solid var(--border);border-radius:7px;
-  background:var(--surface);color:var(--text);cursor:pointer}
+  background:var(--surface);color:var(--text);cursor:pointer;
+  transition:background .2s,border-color .2s,color .2s}
 .date-row input[type=date]::-webkit-calendar-picker-indicator{
   opacity:.6;cursor:pointer}
 .clear-dates{font-size:12px;padding:5px 10px;border-radius:7px;
@@ -67,8 +104,8 @@ header p{font-size:12px;color:var(--muted)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
 .card{background:var(--surface);border:1px solid var(--border);
   border-radius:12px;overflow:hidden;display:flex;flex-direction:column;
-  transition:box-shadow .15s,transform .15s}
-.card:hover{box-shadow:0 6px 20px rgba(0,0,0,.09);transform:translateY(-1px)}
+  transition:box-shadow .15s,transform .15s,background .2s,border-color .2s}
+.card:hover{box-shadow:0 6px 20px var(--card-shadow);transform:translateY(-1px)}
 
 .thumb-link{display:block;text-decoration:none}
 .thumb-wrap{position:relative;width:100%;padding-top:56.25%;
@@ -112,7 +149,7 @@ header p{font-size:12px;color:var(--muted)}
 .watch-btn{font-size:12px;padding:4px 10px;border-radius:6px;
   background:var(--accent-bg);color:var(--accent);
   border:1px solid #f5c4b3;white-space:nowrap;flex-shrink:0}
-.watch-btn:hover{background:var(--accent);color:#fff;text-decoration:none}
+.watch-btn:hover{background:var(--accent-hover);color:#fff;text-decoration:none}
 .hidden{display:none!important}
 
 @media(max-width:680px){.sidebar{display:none}.layout{flex-direction:column}.main{padding:10px}}
@@ -120,8 +157,13 @@ header p{font-size:12px;color:var(--muted)}
 </head>
 <body>
 <header>
-  <h1>BassBuzz Cover Index</h1>
-  <p>Updated: April 15, 2026 at 11:53 AM</p>
+  <h1>Bass Cover Index</h1>
+  <p>Updated: April 20, 2026 at 08:20 AM</p>
+  <div class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light mode">
+    <span class="toggle-icon" id="theme-icon">&#127769;</span>
+    <div class="toggle-track"><div class="toggle-thumb"></div></div>
+    <span class="theme-toggle-label" id="theme-label">Dark mode</span>
+  </div>
 </header>
 <div class="layout">
   <nav class="sidebar">
@@ -129,16 +171,16 @@ header p{font-size:12px;color:var(--muted)}
     <div class="sitem active" data-user="all" onclick="filterUser('all')">
       <div class="av-init" style="font-size:13px">&#9733;</div>
       <span class="uname">All contributors</span>
-      <span class="cnt" id="cnt-all">141</span>
+      <span class="cnt" id="cnt-all">155</span>
     </div>
     <div style="margin-top:4px"></div>
-    <div class="sitem" data-user="sunDOG" onclick="filterUser('sunDOG')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/sundog/72/59900_2.png" alt="sunDOG" onerror="this.outerHTML='<div class=&quot;av-init&quot;>SU</div>'"><span class="uname">sunDOG</span><span class="cnt">17</span></div>
+    <div class="sitem" data-user="sunDOG" onclick="filterUser('sunDOG')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/sundog/72/59900_2.png" alt="sunDOG" onerror="this.outerHTML='<div class=&quot;av-init&quot;>SU</div>'"><span class="uname">sunDOG</span><span class="cnt">18</span></div>
 <div class="sitem" data-user="TheMadBassist" onclick="filterUser('TheMadBassist')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/themadbassist/72/82589_2.png" alt="TheMadBassist" onerror="this.outerHTML='<div class=&quot;av-init&quot;>TH</div>'"><span class="uname">TheMadBassist</span><span class="cnt">12</span></div>
-<div class="sitem" data-user="BassyBunch" onclick="filterUser('BassyBunch')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/bassybunch/72/73616_2.png" alt="BassyBunch" onerror="this.outerHTML='<div class=&quot;av-init&quot;>BA</div>'"><span class="uname">BassyBunch</span><span class="cnt">10</span></div>
-<div class="sitem" data-user="JustinAndSheba" onclick="filterUser('JustinAndSheba')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/justinandsheba/72/68579_2.png" alt="JustinAndSheba" onerror="this.outerHTML='<div class=&quot;av-init&quot;>JU</div>'"><span class="uname">JustinAndSheba</span><span class="cnt">7</span></div>
-<div class="sitem" data-user="Professor" onclick="filterUser('Professor')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/professor/72/83710_2.png" alt="Professor" onerror="this.outerHTML='<div class=&quot;av-init&quot;>PR</div>'"><span class="uname">Professor</span><span class="cnt">7</span></div>
+<div class="sitem" data-user="BassyBunch" onclick="filterUser('BassyBunch')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/bassybunch/72/73616_2.png" alt="BassyBunch" onerror="this.outerHTML='<div class=&quot;av-init&quot;>BA</div>'"><span class="uname">BassyBunch</span><span class="cnt">12</span></div>
+<div class="sitem" data-user="Professor" onclick="filterUser('Professor')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/professor/72/83710_2.png" alt="Professor" onerror="this.outerHTML='<div class=&quot;av-init&quot;>PR</div>'"><span class="uname">Professor</span><span class="cnt">11</span></div>
+<div class="sitem" data-user="JustinAndSheba" onclick="filterUser('JustinAndSheba')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/justinandsheba/72/68579_2.png" alt="JustinAndSheba" onerror="this.outerHTML='<div class=&quot;av-init&quot;>JU</div>'"><span class="uname">JustinAndSheba</span><span class="cnt">8</span></div>
+<div class="sitem" data-user="faydout" onclick="filterUser('faydout')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/faydout/72/57513_2.png" alt="faydout" onerror="this.outerHTML='<div class=&quot;av-init&quot;>FA</div>'"><span class="uname">faydout</span><span class="cnt">7</span></div>
 <div class="sitem" data-user="justarookie" onclick="filterUser('justarookie')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/justarookie/72/74251_2.png" alt="justarookie" onerror="this.outerHTML='<div class=&quot;av-init&quot;>JU</div>'"><span class="uname">justarookie</span><span class="cnt">6</span></div>
-<div class="sitem" data-user="faydout" onclick="filterUser('faydout')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/faydout/72/57513_2.png" alt="faydout" onerror="this.outerHTML='<div class=&quot;av-init&quot;>FA</div>'"><span class="uname">faydout</span><span class="cnt">5</span></div>
 <div class="sitem" data-user="BassFusion" onclick="filterUser('BassFusion')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/bassfusion/72/80718_2.png" alt="BassFusion" onerror="this.outerHTML='<div class=&quot;av-init&quot;>BA</div>'"><span class="uname">BassFusion</span><span class="cnt">5</span></div>
 <div class="sitem" data-user="BumbleJazz" onclick="filterUser('BumbleJazz')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/bumblejazz/72/64185_2.png" alt="BumbleJazz" onerror="this.outerHTML='<div class=&quot;av-init&quot;>BU</div>'"><span class="uname">BumbleJazz</span><span class="cnt">5</span></div>
 <div class="sitem" data-user="beaurapp" onclick="filterUser('beaurapp')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/beaurapp/72/12115_2.png" alt="beaurapp" onerror="this.outerHTML='<div class=&quot;av-init&quot;>BE</div>'"><span class="uname">beaurapp</span><span class="cnt">4</span></div>
@@ -148,13 +190,15 @@ header p{font-size:12px;color:var(--muted)}
 <div class="sitem" data-user="Vader" onclick="filterUser('Vader')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/vader/72/64413_2.png" alt="Vader" onerror="this.outerHTML='<div class=&quot;av-init&quot;>VA</div>'"><span class="uname">Vader</span><span class="cnt">3</span></div>
 <div class="sitem" data-user="AndreaJayne" onclick="filterUser('AndreaJayne')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/andreajayne/72/63057_2.png" alt="AndreaJayne" onerror="this.outerHTML='<div class=&quot;av-init&quot;>AN</div>'"><span class="uname">AndreaJayne</span><span class="cnt">3</span></div>
 <div class="sitem" data-user="EverC" onclick="filterUser('EverC')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/everc/72/71756_2.png" alt="EverC" onerror="this.outerHTML='<div class=&quot;av-init&quot;>EV</div>'"><span class="uname">EverC</span><span class="cnt">3</span></div>
+<div class="sitem" data-user="Mktony32" onclick="filterUser('Mktony32')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/mktony32/72/83017_2.png" alt="Mktony32" onerror="this.outerHTML='<div class=&quot;av-init&quot;>MK</div>'"><span class="uname">Mktony32</span><span class="cnt">3</span></div>
 <div class="sitem" data-user="MrFrench" onclick="filterUser('MrFrench')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/mrfrench/72/84775_2.png" alt="MrFrench" onerror="this.outerHTML='<div class=&quot;av-init&quot;>MR</div>'"><span class="uname">MrFrench</span><span class="cnt">3</span></div>
 <div class="sitem" data-user="katieann1988" onclick="filterUser('katieann1988')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/katieann1988/72/84861_2.png" alt="katieann1988" onerror="this.outerHTML='<div class=&quot;av-init&quot;>KA</div>'"><span class="uname">katieann1988</span><span class="cnt">3</span></div>
 <div class="sitem" data-user="ourwildplaces" onclick="filterUser('ourwildplaces')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/ourwildplaces/72/79386_2.png" alt="ourwildplaces" onerror="this.outerHTML='<div class=&quot;av-init&quot;>OU</div>'"><span class="uname">ourwildplaces</span><span class="cnt">2</span></div>
 <div class="sitem" data-user="bora" onclick="filterUser('bora')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/bora/72/73183_2.png" alt="bora" onerror="this.outerHTML='<div class=&quot;av-init&quot;>BO</div>'"><span class="uname">bora</span><span class="cnt">2</span></div>
 <div class="sitem" data-user="carcinogenedwards" onclick="filterUser('carcinogenedwards')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/carcinogenedwards/72/81192_2.png" alt="carcinogenedwards" onerror="this.outerHTML='<div class=&quot;av-init&quot;>CA</div>'"><span class="uname">carcinogenedwards</span><span class="cnt">2</span></div>
 <div class="sitem" data-user="CrayWolf" onclick="filterUser('CrayWolf')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/craywolf/72/70468_2.png" alt="CrayWolf" onerror="this.outerHTML='<div class=&quot;av-init&quot;>CR</div>'"><span class="uname">CrayWolf</span><span class="cnt">2</span></div>
-<div class="sitem" data-user="Mktony32" onclick="filterUser('Mktony32')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/mktony32/72/83017_2.png" alt="Mktony32" onerror="this.outerHTML='<div class=&quot;av-init&quot;>MK</div>'"><span class="uname">Mktony32</span><span class="cnt">2</span></div>
+<div class="sitem" data-user="andrea-slnd" onclick="filterUser('andrea-slnd')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/andrea-slnd/72/70651_2.png" alt="andrea-slnd" onerror="this.outerHTML='<div class=&quot;av-init&quot;>AN</div>'"><span class="uname">andrea-slnd</span><span class="cnt">2</span></div>
+<div class="sitem" data-user="fennario" onclick="filterUser('fennario')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/fennario/72/85272_2.png" alt="fennario" onerror="this.outerHTML='<div class=&quot;av-init&quot;>FE</div>'"><span class="uname">fennario</span><span class="cnt">2</span></div>
 <div class="sitem" data-user="DirkTungsten" onclick="filterUser('DirkTungsten')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/dirktungsten/72/77331_2.png" alt="DirkTungsten" onerror="this.outerHTML='<div class=&quot;av-init&quot;>DI</div>'"><span class="uname">DirkTungsten</span><span class="cnt">2</span></div>
 <div class="sitem" data-user="uttaraag" onclick="filterUser('uttaraag')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/uttaraag/72/79668_2.png" alt="uttaraag" onerror="this.outerHTML='<div class=&quot;av-init&quot;>UT</div>'"><span class="uname">uttaraag</span><span class="cnt">2</span></div>
 <div class="sitem" data-user="travis.thepadre.reed" onclick="filterUser('travis.thepadre.reed')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/travis.thepadre.reed/72/11365_2.png" alt="travis.thepadre.reed" onerror="this.outerHTML='<div class=&quot;av-init&quot;>TR</div>'"><span class="uname">travis.thepadre.reed</span><span class="cnt">1</span></div>
@@ -173,21 +217,20 @@ header p{font-size:12px;color:var(--muted)}
 <div class="sitem" data-user="KaiserSoze" onclick="filterUser('KaiserSoze')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/kaisersoze/72/84702_2.png" alt="KaiserSoze" onerror="this.outerHTML='<div class=&quot;av-init&quot;>KA</div>'"><span class="uname">KaiserSoze</span><span class="cnt">1</span></div>
 <div class="sitem" data-user="Ed" onclick="filterUser('Ed')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/ed/72/76644_2.png" alt="Ed" onerror="this.outerHTML='<div class=&quot;av-init&quot;>ED</div>'"><span class="uname">Ed</span><span class="cnt">1</span></div>
 <div class="sitem" data-user="TDobbs77" onclick="filterUser('TDobbs77')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/tdobbs77/72/78053_2.png" alt="TDobbs77" onerror="this.outerHTML='<div class=&quot;av-init&quot;>TD</div>'"><span class="uname">TDobbs77</span><span class="cnt">1</span></div>
-<div class="sitem" data-user="andrea-slnd" onclick="filterUser('andrea-slnd')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/andrea-slnd/72/70651_2.png" alt="andrea-slnd" onerror="this.outerHTML='<div class=&quot;av-init&quot;>AN</div>'"><span class="uname">andrea-slnd</span><span class="cnt">1</span></div>
-<div class="sitem" data-user="fennario" onclick="filterUser('fennario')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/fennario/72/85272_2.png" alt="fennario" onerror="this.outerHTML='<div class=&quot;av-init&quot;>FE</div>'"><span class="uname">fennario</span><span class="cnt">1</span></div>
 <div class="sitem" data-user="groaner" onclick="filterUser('groaner')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/groaner/72/65104_2.png" alt="groaner" onerror="this.outerHTML='<div class=&quot;av-init&quot;>GR</div>'"><span class="uname">groaner</span><span class="cnt">1</span></div>
 <div class="sitem" data-user="Al1885" onclick="filterUser('Al1885')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/al1885/72/16361_2.png" alt="Al1885" onerror="this.outerHTML='<div class=&quot;av-init&quot;>AL</div>'"><span class="uname">Al1885</span><span class="cnt">1</span></div>
 <div class="sitem" data-user="joergkutter" onclick="filterUser('joergkutter')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/joergkutter/72/659_2.png" alt="joergkutter" onerror="this.outerHTML='<div class=&quot;av-init&quot;>JO</div>'"><span class="uname">joergkutter</span><span class="cnt">1</span></div>
 <div class="sitem" data-user="JerryP" onclick="filterUser('JerryP')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/jerryp/72/70450_2.png" alt="JerryP" onerror="this.outerHTML='<div class=&quot;av-init&quot;>JE</div>'"><span class="uname">JerryP</span><span class="cnt">1</span></div>
 <div class="sitem" data-user="TheMaartian" onclick="filterUser('TheMaartian')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/themaartian/72/65931_2.png" alt="TheMaartian" onerror="this.outerHTML='<div class=&quot;av-init&quot;>TH</div>'"><span class="uname">TheMaartian</span><span class="cnt">1</span></div>
 <div class="sitem" data-user="RunawayBassman01" onclick="filterUser('RunawayBassman01')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/runawaybassman01/72/70497_2.png" alt="RunawayBassman01" onerror="this.outerHTML='<div class=&quot;av-init&quot;>RU</div>'"><span class="uname">RunawayBassman01</span><span class="cnt">1</span></div>
+<div class="sitem" data-user="kenM" onclick="filterUser('kenM')"><img class="av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/kenm/72/73980_2.png" alt="kenM" onerror="this.outerHTML='<div class=&quot;av-init&quot;>KE</div>'"><span class="uname">kenM</span><span class="cnt">1</span></div>
   </nav>
   <main class="main">
     <div class="stats">
-      <div class="stat"><div class="n" id="sv">141</div><div class="lbl">Videos</div></div>
-      <div class="stat"><div class="n" id="su">49</div><div class="lbl">Contributors</div></div>
-      <div class="stat"><div class="n">27</div><div class="lbl">Pages scanned</div></div>
-      <div class="stat"><div class="n">529</div><div class="lbl">Thread posts</div></div>
+      <div class="stat"><div class="n" id="sv">155</div><div class="lbl">Videos</div></div>
+      <div class="stat"><div class="n" id="su">50</div><div class="lbl">Contributors</div></div>
+      <div class="stat"><div class="n">29</div><div class="lbl">Pages scanned</div></div>
+      <div class="stat"><div class="n">580</div><div class="lbl">Thread posts</div></div>
     </div>
     <div class="toolbar">
       <input type="search" id="q" placeholder="Search title, song, artist, username&hellip;" oninput="applyFilters()">
@@ -203,7 +246,7 @@ header p{font-size:12px;color:var(--muted)}
         <option value="oldest">Oldest first</option>
         <option value="user">By contributor</option>
       </select>
-      <span class="count-label" id="cl">141 videos</span>
+      <span class="count-label" id="cl">155 videos</span>
     </div>
     <div class="date-row">
       <label for="date-from">From</label>
@@ -3033,6 +3076,286 @@ header p{font-size:12px;color:var(--muted)}
     </div>
   </div>
 </div>
+<div class="card" data-user="JustinAndSheba" data-platform="YouTube" data-thread="post-your-covers-2026" data-postnum="532" data-date="2026-04-15" data-search="testament - trial by fire (1988) bass playthrough/cover  justinandsheba post your covers! (2026)">
+  <a href="https://www.youtube.com/watch?v=IzMLyo4Nw0I" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/IzMLyo4Nw0I/hqdefault.jpg" alt="Testament - Trial By Fire (1988) bass playthrough/cover" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Testament - Trial By Fire (1988) bass playthrough/cover">Testament - Trial By Fire (1988) bass playthrough/cover</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/justinandsheba/72/68579_2.png" alt="JustinAndSheba" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>JU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/JustinAndSheba" target="_blank" rel="noopener" class="user-link">JustinAndSheba</a>
+        <span class="card-date">Apr 15, 2026 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/532" target="_blank" rel="noopener" class="post-link">post #532</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=IzMLyo4Nw0I" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="fennario" data-platform="YouTube" data-thread="post-your-covers-2026" data-postnum="538" data-date="2026-04-17" data-search="arc de soleil - got caught in amsterdam [bass cover]  fennario post your covers! (2026)">
+  <a href="https://www.youtube.com/watch?v=T9uMbI1SC_s" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/T9uMbI1SC_s/hqdefault.jpg" alt="Arc de Soleil - Got Caught in Amsterdam [Bass Cover]" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Arc de Soleil - Got Caught in Amsterdam [Bass Cover]">Arc de Soleil - Got Caught in Amsterdam [Bass Cover]</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/fennario/72/85272_2.png" alt="fennario" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>FE</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/fennario" target="_blank" rel="noopener" class="user-link">fennario</a>
+        <span class="card-date">Apr 17, 2026 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/538" target="_blank" rel="noopener" class="post-link">post #538</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=T9uMbI1SC_s" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="faydout" data-platform="YouTube" data-thread="post-your-covers-2026" data-postnum="552" data-date="2026-04-18" data-search="the cure - close to me  faydout post your covers! (2026)">
+  <a href="https://www.youtube.com/watch?v=leTxpPP2xCo" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/leTxpPP2xCo/hqdefault.jpg" alt="The Cure - Close to Me" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="The Cure - Close to Me">The Cure - Close to Me</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/faydout/72/57513_2.png" alt="faydout" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>FA</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/faydout" target="_blank" rel="noopener" class="user-link">faydout</a>
+        <span class="card-date">Apr 18, 2026 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/552" target="_blank" rel="noopener" class="post-link">post #552</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=leTxpPP2xCo" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="sunDOG" data-platform="YouTube" data-thread="post-your-covers-2026" data-postnum="555" data-date="2026-04-18" data-search="p!nk - who knew (acoustic) bass cover  sundog post your covers! (2026)">
+  <a href="https://www.youtube.com/watch?v=PVHG58G406U" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/PVHG58G406U/hqdefault.jpg" alt="P!nk - Who Knew (Acoustic) bass cover" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="P!nk - Who Knew (Acoustic) bass cover">P!nk - Who Knew (Acoustic) bass cover</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/sundog/72/59900_2.png" alt="sunDOG" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>SU</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/sunDOG" target="_blank" rel="noopener" class="user-link">sunDOG</a>
+        <span class="card-date">Apr 18, 2026 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/555" target="_blank" rel="noopener" class="post-link">post #555</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=PVHG58G406U" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="Mktony32" data-platform="YouTube" data-thread="post-your-covers-2026" data-postnum="556" data-date="2026-04-18" data-search="if you could read my mind by gordon lightfoot  mktony32 post your covers! (2026)">
+  <a href="https://www.youtube.com/embed/f866juaSpK8?feature=oembed&amp;amp;wmode=opaque" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/f866juaSpK8/hqdefault.jpg" alt="If you could read my mind by Gordon Lightfoot" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="If you could read my mind by Gordon Lightfoot">If you could read my mind by Gordon Lightfoot</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/mktony32/72/83017_2.png" alt="Mktony32" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>MK</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/Mktony32" target="_blank" rel="noopener" class="user-link">Mktony32</a>
+        <span class="card-date">Apr 18, 2026 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/556" target="_blank" rel="noopener" class="post-link">post #556</a></span>
+      </div>
+      <a href="https://www.youtube.com/embed/f866juaSpK8?feature=oembed&amp;amp;wmode=opaque" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="kenM" data-platform="YouTube" data-thread="post-your-covers-2026" data-postnum="567" data-date="2026-04-18" data-search="stranglers hampton pool 6.7.18 no more heroes intro  kenm post your covers! (2026)">
+  <a href="https://www.youtube.com/watch?v=RZrTyP-NI_U" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/RZrTyP-NI_U/hqdefault.jpg" alt="Stranglers Hampton Pool 6.7.18 No More Heroes Intro" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Stranglers Hampton Pool 6.7.18 No More Heroes Intro">Stranglers Hampton Pool 6.7.18 No More Heroes Intro</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/kenm/72/73980_2.png" alt="kenM" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>KE</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/kenM" target="_blank" rel="noopener" class="user-link">kenM</a>
+        <span class="card-date">Apr 18, 2026 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/567" target="_blank" rel="noopener" class="post-link">post #567</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=RZrTyP-NI_U" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="BassyBunch" data-platform="YouTube" data-thread="post-your-covers-2026" data-postnum="570" data-date="2026-04-18" data-search="[teeth-clenched groove] muse - stockholm syndrome [2nd take] [bass cover]  bassybunch post your covers! (2026)">
+  <a href="https://www.youtube.com/watch?v=bMnasPMbfQw" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/bMnasPMbfQw/hqdefault.jpg" alt="[Teeth-Clenched Groove] Muse - Stockholm Syndrome [2nd Take] [Bass Cover]" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="[Teeth-Clenched Groove] Muse - Stockholm Syndrome [2nd Take] [Bass Cover]">[Teeth-Clenched Groove] Muse - Stockholm Syndrome [2nd Take] [Bass Cover]</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/bassybunch/72/73616_2.png" alt="BassyBunch" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>BA</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/BassyBunch" target="_blank" rel="noopener" class="user-link">BassyBunch</a>
+        <span class="card-date">Apr 18, 2026 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/570" target="_blank" rel="noopener" class="post-link">post #570</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=bMnasPMbfQw" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="BassyBunch" data-platform="YouTube" data-thread="post-your-covers-2026" data-postnum="570" data-date="2026-04-18" data-search="stockholmsyndrome  bassybunch post your covers! (2026)">
+  <a href="https://youtu.be/hHhzwlqb1Bs?si=EWJOmTdmMSjWBt41" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/hHhzwlqb1Bs/hqdefault.jpg" alt="StockholmSyndrome" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="StockholmSyndrome">StockholmSyndrome</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/bassybunch/72/73616_2.png" alt="BassyBunch" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>BA</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/BassyBunch" target="_blank" rel="noopener" class="user-link">BassyBunch</a>
+        <span class="card-date">Apr 18, 2026 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/570" target="_blank" rel="noopener" class="post-link">post #570</a></span>
+      </div>
+      <a href="https://youtu.be/hHhzwlqb1Bs?si=EWJOmTdmMSjWBt41" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="faydout" data-platform="YouTube" data-thread="post-your-covers-2026" data-postnum="576" data-date="2026-04-19" data-search="lush - starlust  faydout post your covers! (2026)">
+  <a href="https://www.youtube.com/watch?v=yokKKJkTCW4" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/yokKKJkTCW4/hqdefault.jpg" alt="Lush - Starlust" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Lush - Starlust">Lush - Starlust</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/faydout/72/57513_2.png" alt="faydout" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>FA</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/faydout" target="_blank" rel="noopener" class="user-link">faydout</a>
+        <span class="card-date">Apr 19, 2026 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/576" target="_blank" rel="noopener" class="post-link">post #576</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=yokKKJkTCW4" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="andrea-slnd" data-platform="YouTube" data-thread="post-your-covers-2026" data-postnum="579" data-date="2026-04-19" data-search="https://youtu.be/4wluyh22kpi  andrea-slnd post your covers! (2026)">
+  <a href="https://youtu.be/4wluyh22KpI" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><div class="no-thumb"><div class="no-thumb-icon">&#9654;</div><div class="no-thumb-text">Video Thumbnail Unavailable</div></div>
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="https://youtu.be/4wluyh22KpI">https://youtu.be/4wluyh22KpI</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/andrea-slnd/72/70651_2.png" alt="andrea-slnd" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>AN</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/andrea-slnd" target="_blank" rel="noopener" class="user-link">andrea-slnd</a>
+        <span class="card-date">Apr 19, 2026 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/579" target="_blank" rel="noopener" class="post-link">post #579</a></span>
+      </div>
+      <a href="https://youtu.be/4wluyh22KpI" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="Professor" data-platform="YouTube" data-thread="post-your-covers-2026" data-postnum="580" data-date="2026-04-19" data-search="bad wolves - zombie (bass cover)  professor post your covers! (2026)">
+  <a href="https://www.youtube.com/watch?v=CFE6OHaAGnE" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/CFE6OHaAGnE/hqdefault.jpg" alt="Bad Wolves - Zombie (Bass cover)" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Bad Wolves - Zombie (Bass cover)">Bad Wolves - Zombie (Bass cover)</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/professor/72/83710_2.png" alt="Professor" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>PR</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/Professor" target="_blank" rel="noopener" class="user-link">Professor</a>
+        <span class="card-date">Apr 19, 2026 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/580" target="_blank" rel="noopener" class="post-link">post #580</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=CFE6OHaAGnE" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="Professor" data-platform="YouTube" data-thread="post-your-covers-2026" data-postnum="580" data-date="2026-04-19" data-search="nirvana - lake of fire (bass cover)  professor post your covers! (2026)">
+  <a href="https://www.youtube.com/watch?v=Cs5Byilcpvw" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/Cs5Byilcpvw/hqdefault.jpg" alt="Nirvana - Lake of Fire (Bass cover)" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Nirvana - Lake of Fire (Bass cover)">Nirvana - Lake of Fire (Bass cover)</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/professor/72/83710_2.png" alt="Professor" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>PR</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/Professor" target="_blank" rel="noopener" class="user-link">Professor</a>
+        <span class="card-date">Apr 19, 2026 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/580" target="_blank" rel="noopener" class="post-link">post #580</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=Cs5Byilcpvw" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="Professor" data-platform="YouTube" data-thread="post-your-covers-2026" data-postnum="580" data-date="2026-04-19" data-search="beck - loser (bass cover)  professor post your covers! (2026)">
+  <a href="https://www.youtube.com/watch?v=bPZJE7Poqng" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/bPZJE7Poqng/hqdefault.jpg" alt="Beck - Loser (Bass cover)" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Beck - Loser (Bass cover)">Beck - Loser (Bass cover)</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/professor/72/83710_2.png" alt="Professor" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>PR</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/Professor" target="_blank" rel="noopener" class="user-link">Professor</a>
+        <span class="card-date">Apr 19, 2026 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/580" target="_blank" rel="noopener" class="post-link">post #580</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=bPZJE7Poqng" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
+<div class="card" data-user="Professor" data-platform="YouTube" data-thread="post-your-covers-2026" data-postnum="582" data-date="2026-04-19" data-search="joey ramone - what a wonderful world (bass cover)  professor post your covers! (2026)">
+  <a href="https://www.youtube.com/watch?v=-jT2ALlYGss" target="_blank" rel="noopener" class="thumb-link">
+    <div class="thumb-wrap"><img src="https://i.ytimg.com/vi/-jT2ALlYGss/hqdefault.jpg" alt="Joey Ramone - What a Wonderful World (Bass cover)" loading="lazy">
+      <div class="play-overlay"><div class="play-btn">&#9654;</div></div>
+      <span class="pbadge" style="background:#fee2e2;color:#b91c1c">YT</span>
+    </div>
+  </a>
+  <div class="card-body">
+    <div class="card-title" title="Joey Ramone - What a Wonderful World (Bass cover)">Joey Ramone - What a Wonderful World (Bass cover)</div>
+    
+    <div class="card-footer">
+      <img class="card-av" src="https://forum.bassbuzz.com/user_avatar/forum.bassbuzz.com/professor/72/83710_2.png" alt="Professor" onerror="this.outerHTML='<div class=&quot;card-av-init&quot;>PR</div>'">
+      <div class="card-meta">
+        <a href="https://forum.bassbuzz.com/u/Professor" target="_blank" rel="noopener" class="user-link">Professor</a>
+        <span class="card-date">Apr 19, 2026 &middot; <a href="https://forum.bassbuzz.com/t/post-your-covers-2026/89851/582" target="_blank" rel="noopener" class="post-link">post #582</a></span>
+      </div>
+      <a href="https://www.youtube.com/watch?v=-jT2ALlYGss" target="_blank" rel="noopener" class="watch-btn">Watch</a>
+    </div>
+  </div>
+</div>
     </div>
   </main>
 </div>
@@ -3049,31 +3372,28 @@ function clearDates(){
   applyFilters();
 }
 function applyFilters(){
-  const q      = document.getElementById('q').value.toLowerCase();
-  const pf     = document.getElementById('pf').value;
-  const th     = document.getElementById('tf').value;
-  const srt    = document.getElementById('srt').value;
-  const dfrom  = document.getElementById('date-from').value; // YYYY-MM-DD or ''
-  const dto    = document.getElementById('date-to').value;
-
-  const cards=[...document.querySelectorAll('.card')];
+  const q     = document.getElementById('q').value.toLowerCase();
+  const pf    = document.getElementById('pf').value;
+  const th    = document.getElementById('tf').value;
+  const srt   = document.getElementById('srt').value;
+  const dfrom = document.getElementById('date-from').value;
+  const dto   = document.getElementById('date-to').value;
+  const cards = [...document.querySelectorAll('.card')];
   let vis=0; const users=new Set();
-
   cards.forEach(c=>{
-    const cdate = c.dataset.date || '';
+    const cdate   = c.dataset.date || '';
     const inRange = (!dfrom || cdate >= dfrom) && (!dto || cdate <= dto);
     const show =
       (activeUser==='all' || c.dataset.user===activeUser) &&
       (pf==='all'         || c.dataset.platform===pf)     &&
       (th==='all'         || c.dataset.thread===th)        &&
-      inRange                                              &&
+      inRange &&
       (!q || c.dataset.search.includes(q));
     c.classList.toggle('hidden',!show);
     if(show){ vis++; users.add(c.dataset.user); }
   });
-
-  const grid=document.getElementById('grid');
-  const vis_cards=cards.filter(c=>!c.classList.contains('hidden'));
+  const grid = document.getElementById('grid');
+  const vis_cards = cards.filter(c=>!c.classList.contains('hidden'));
   if(srt==='oldest')
     vis_cards.sort((a,b)=>+a.dataset.postnum - +b.dataset.postnum);
   else if(srt==='user')
@@ -3082,12 +3402,28 @@ function applyFilters(){
   else
     vis_cards.sort((a,b)=>+b.dataset.postnum - +a.dataset.postnum);
   vis_cards.forEach(c=>grid.appendChild(c));
-
-  document.getElementById('cl').textContent=vis+' video'+(vis!==1?'s':'');
-  document.getElementById('sv').textContent=vis;
-  document.getElementById('su').textContent=users.size;
+  document.getElementById('cl').textContent = vis+' video'+(vis!==1?'s':'');
+  document.getElementById('sv').textContent = vis;
+  document.getElementById('su').textContent = users.size;
 }
-document.addEventListener('DOMContentLoaded', applyFilters);
+function setTheme(theme, save){
+  if(save === undefined) save = true;
+  document.documentElement.setAttribute('data-theme', theme);
+  const icon = document.getElementById('theme-icon');
+  if(icon) icon.innerHTML = theme === 'dark' ? '&#9728;' : '&#127769;';
+  const lbl = document.getElementById('theme-label');
+  if(lbl) lbl.textContent = theme === 'dark' ? 'Light mode' : 'Dark mode';
+  if(save) localStorage.setItem('theme', theme);
+}
+function toggleTheme(){
+  const current = document.documentElement.getAttribute('data-theme') || 'light';
+  setTheme(current === 'dark' ? 'light' : 'dark');
+}
+document.addEventListener('DOMContentLoaded', function(){
+  const saved = localStorage.getItem('theme') || 'light';
+  setTheme(saved, false);
+  applyFilters();
+});
 </script>
 </body>
 </html>
